@@ -322,7 +322,8 @@ blockquote {
 }
 
 .brand {
-  width: 8.75em;
+  height: 1.8125em;
+  width: auto;
 }
 
 .brand:where(.w-variant-d2179328-ce67-07ac-6a36-71e2011ac689), .brand.secondary {
@@ -2278,7 +2279,8 @@ blockquote {
   }
 
   .brand {
-    width: 9em;
+    height: 1.8125em;
+    width: auto;
   }
 
   .text-style-paragraph:where(.w-variant-d2179328-ce67-07ac-6a36-71e2011ac689), .text-style-paragraph.secondary-24 {
