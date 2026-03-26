@@ -1,0 +1,272 @@
+You are helping me turn this imported website into the official company website for **BlackOrigin Inc.**
+
+## Company context
+
+BlackOrigin is a technology company built to **create, operate, and scale one product at a time**.
+It is not just a single-product startup. It is a **parent technology company** with a long-term vision to launch and grow multiple tech-driven products and ecosystems over time.
+
+The first product under BlackOrigin is **Campus Music**.
+
+## What Campus Music is
+
+Campus Music is the first product being built under BlackOrigin.
+It is a platform and ecosystem focused on student creators, music, culture, discovery, fan engagement, and opportunities across universities.
+It is bigger than just a music player. It is meant to become a stage for student talent, creator growth, campus engagement, and future partnerships.
+
+## What the website should achieve
+
+This website is for **BlackOrigin**, not just for Campus Music.
+
+The website must:
+
+1. Present BlackOrigin as a serious, premium, modern technology company.
+2. Explain clearly that BlackOrigin builds and launches products one at a time.
+3. Position Campus Music as the **first flagship product**.
+4. Create trust with investors, partners, users, collaborators, and future hires.
+5. Feel ambitious, elegant, intelligent, and globally relevant.
+6. Be clean and simple, but powerful.
+7. Avoid looking like a cheap startup landing page.
+8. Feel like a real technology holding company or product studio with vision.
+
+## Design direction
+
+Use the current imported website as the foundation, but transform it into a premium BlackOrigin brand site.
+
+The design should feel:
+
+* sleek
+* modern
+* premium
+* minimal
+* intelligent
+* ambitious
+* tech-forward
+* polished
+* investor-ready
+
+Avoid:
+
+* clutter
+* generic stock startup language
+* childish design
+* overcrowded sections
+* too many colors
+* cheap SaaS visuals
+* overly playful styling
+
+Preferred feel:
+
+* dark or refined neutral color palette
+* strong typography
+* clean spacing
+* powerful hero section
+* subtle but elegant visual motion if appropriate
+* world-class tech company aesthetic
+
+## Website structure I want
+
+Please redesign and organize the site around these sections:
+
+### 1. Hero section
+
+This should introduce BlackOrigin clearly and powerfully.
+
+The hero should communicate that:
+
+* BlackOrigin builds technology products with long-term vision
+* it launches one strong product at a time
+* it is starting with Campus Music
+* it is building for real-world impact across markets
+
+The hero should include:
+
+* a powerful headline
+* a clear subheadline
+* 1 primary CTA
+* 1 secondary CTA if useful
+
+Good CTA ideas:
+
+* Explore BlackOrigin
+* See Our First Product
+* Discover Campus Music
+* Partner With Us
+
+### 2. About BlackOrigin
+
+Explain:
+
+* what BlackOrigin is
+* why it exists
+* its philosophy of building deliberately and scaling carefully
+* that it is a parent company focused on creating enduring technology products
+
+This section should sound visionary but grounded.
+
+### 3. Our model / how we build
+
+Create a section explaining BlackOrigin’s product-building model.
+
+Possible themes:
+
+* one product at a time
+* focus before expansion
+* disciplined execution
+* technology-driven products
+* long-term value creation
+* careful incubation and scaling
+
+This section should make the business model easy to understand.
+
+### 4. Flagship product section: Campus Music
+
+This section should feature Campus Music as the first product under BlackOrigin.
+
+Explain that Campus Music is:
+
+* the first product in the BlackOrigin ecosystem
+* focused on student creators and campus culture
+* a platform for music, exposure, connection, and growth
+* a starting point for something much larger
+
+Include space for:
+
+* product summary
+* value proposition
+* visual preview or mockup placeholder
+* CTA such as “Learn More” or “Coming Soon”
+
+### 5. Vision / future products
+
+Create a section that shows BlackOrigin is building beyond one app.
+
+This should communicate that:
+
+* BlackOrigin is building a portfolio over time
+* new products will be launched carefully and intentionally
+* the company is focused on solving real problems through technology
+
+Do not make this section too vague or too hype-driven.
+It should feel strategic and credible.
+
+### 6. Why BlackOrigin
+
+Create a section that explains what makes BlackOrigin different.
+
+Possible angles:
+
+* disciplined product creation
+* ecosystem thinking
+* long-term focus
+* modern technology execution
+* strong brand and product ambition
+* thoughtful scaling
+
+### 7. Contact / partnership / collaboration section
+
+This section should invite:
+
+* partners
+* investors
+* collaborators
+* early supporters
+* talent
+
+The tone should be serious and professional.
+
+### 8. Footer
+
+Create a polished footer with:
+
+* BlackOrigin logo/name
+* navigation links
+* social placeholders if needed
+* legal/privacy placeholders
+* strong professional finish
+
+## Copywriting requirements
+
+Write all website copy from scratch for BlackOrigin.
+Do not leave template text in place.
+
+The writing style should be:
+
+* confident
+* polished
+* premium
+* strategic
+* concise
+* visionary but believable
+* not exaggerated
+* not full of empty buzzwords
+
+Avoid words and phrases that sound too generic, overused, or cheap.
+
+## Technical requirements
+
+1. Keep the website fully responsive on desktop, tablet, and mobile.
+2. Preserve or improve the current structure where useful, but do not be afraid to reorganize sections.
+3. Fix any broken assets, layout issues, or path problems.
+4. Keep the code clean and maintainable.
+5. Do not remove important working assets unless necessary.
+6. Use reusable structure and organized files where possible.
+7. Make sure the site runs properly in Replit Preview.
+8. Do not convert this into an overly complex app unless necessary.
+9. Keep this as a clean, high-quality company website.
+
+## Branding requirements
+
+Use **BlackOrigin** as the main brand throughout the site.
+
+Brand essence:
+
+* technology
+* origin
+* creation
+* platform-building
+* product incubation
+* long-term vision
+* intelligence
+* execution
+
+Campus Music should appear as:
+
+* “Our first product”
+* “Flagship product”
+* or similar language
+
+## Important constraint
+
+This website is **not** only for Campus Music.
+It is for the parent company, BlackOrigin.
+Campus Music should be featured strongly, but the site must still feel like the home of a bigger company.
+
+## Workflow instruction
+
+Please complete this in phases:
+
+### Phase 1
+
+Audit the imported website structure and tell me:
+
+* what sections currently exist
+* what should be kept
+* what should be replaced
+* what should be redesigned
+
+### Phase 2
+
+Implement the new homepage structure and rewrite all copy for BlackOrigin.
+
+### Phase 3
+
+Refine styling, spacing, typography, responsiveness, and polish.
+
+### Phase 4
+
+Show me the completed result in Preview and summarize what you changed.
+
+Do not make random changes without intention.
+Think like a premium brand designer, product strategist, and frontend engineer working together.
+
+Start by auditing the current site and then begin Phase 1.
