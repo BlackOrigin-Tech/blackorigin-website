@@ -65,10 +65,10 @@
   animation: bo-fade-in 1.5s ease forwards;
   opacity: 0;
 }
-.bo-void-meta-row:nth-child(1) { animation-delay: 1.6s; }
-.bo-void-meta-row:nth-child(2) { animation-delay: 1.9s; }
-.bo-void-meta-row:nth-child(3) { animation-delay: 2.2s; }
-.bo-void-meta-row:nth-child(4) { animation-delay: 2.5s; }
+.bo-void-meta-row:nth-child(1) { animation-delay: 5.8s; }
+.bo-void-meta-row:nth-child(2) { animation-delay: 6.1s; }
+.bo-void-meta-row:nth-child(3) { animation-delay: 6.4s; }
+.bo-void-meta-row:nth-child(4) { animation-delay: 6.7s; }
 .bo-void-dot-sm {
   width: 4px;
   height: 4px;
@@ -121,7 +121,9 @@
   white-space: nowrap;
   border-right: 3px solid white;
   width: 0;
-  animation: bo-typing 2s steps(8, end) 0.5s forwards, bo-caret 0.75s step-end 0.5s 4;
+  animation:
+    bo-caret 0.75s step-end infinite,
+    bo-typing 2s steps(8, end) 3.5s forwards;
 }
 .bo-void-sub {
   font-size: clamp(0.75rem, 1.5vw, 0.95rem);
@@ -134,7 +136,7 @@
   margin: 0;
   animation: bo-fade-in 1.5s ease forwards;
   opacity: 0;
-  animation-delay: 2.8s;
+  animation-delay: 5.8s;
   line-height: 1.6;
 }
 .bo-void-sub em { color: rgba(255,255,255,0.7); font-style: italic; }
@@ -149,7 +151,7 @@
   z-index: 2;
   animation: bo-fade-in 1.5s ease forwards;
   opacity: 0;
-  animation-delay: 3s;
+  animation-delay: 7s;
 }
 @keyframes bo-typing {
   from { width: 0 }
