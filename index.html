@@ -38,6 +38,154 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
+/* ── TICKER ── */
+.bo-ticker-wrap {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  padding: 13px 0;
+  white-space: nowrap;
+}
+.bo-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  animation: bo-scroll 28s linear infinite;
+}
+.bo-ticker-item {
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  padding: 0 2.2em;
+}
+.bo-ticker-dot {
+  color: rgba(255,255,255,0.18);
+  font-size: 0.6rem;
+}
+@keyframes bo-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── CAMPUS MUSIC FEATURE ── */
+.bo-feature-section { background: #f5f5f3; }
+.bo-feature-label { color: #888; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.bo-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5em;
+  align-items: center;
+}
+.bo-feature-content { display: flex; flex-direction: column; }
+.bo-feature-headline { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.1; color: #111; margin: 0; }
+.bo-feature-body { color: #666; line-height: 1.7; max-width: 36em; }
+.bo-feature-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bo-feature-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bo-feature-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+  padding-bottom: 2px;
+  width: fit-content;
+  transition: opacity 0.2s;
+}
+.bo-feature-cta:hover { opacity: 0.6; }
+@media (max-width: 768px) {
+  .bo-feature-grid { grid-template-columns: 1fr; gap: 2.5em; }
+}
+
+/* ── STATS STRIP ── */
+.bo-stats-strip {
+  background: #111;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 3.5em 0;
+}
+.bo-stats-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+}
+.bo-stat { text-align: center; flex: 1; }
+.bo-stat-number {
+  font-family: Inter, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.4em;
+}
+.bo-stat-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  font-family: Inter, sans-serif;
+}
+.bo-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .bo-stats-grid { flex-wrap: wrap; }
+  .bo-stat-divider { display: none; }
+  .bo-stat { flex: 1 0 40%; }
+}
+
+/* ── ORIGINOS TEASER ── */
+.bo-next-section { background: #0a0a0a; }
+.bo-next-eyebrow {
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.bo-next-name {
+  font-family: Inter, sans-serif;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+}
+.bo-next-desc {
+  max-width: 36em;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+}
+.bo-next-badge {
+  display: inline-block;
+  padding: 0.35em 1em;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  font-family: Inter, sans-serif;
+}
+
 </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -236,6 +384,22 @@
         <div class="background-video-overlay"></div>
       </div>
     </section>
+
+    <!-- ── TICKER ── -->
+    <div class="bo-ticker-wrap">
+      <div class="bo-ticker-track">
+        <span class="bo-ticker-item">One product at a time</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Technology first</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Built to scale</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Creator first</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Building since 2024</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">One product at a time</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Technology first</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Built to scale</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Creator first</span><span class="bo-ticker-dot">&#9679;</span>
+        <span class="bo-ticker-item">Building since 2024</span><span class="bo-ticker-dot">&#9679;</span>
+      </div>
+    </div>
     <div section-scroll="body" class="main-body">
 
       <!-- ── ABOUT SECTION ── -->
@@ -266,72 +430,57 @@
         </div>
       </section>
 
-      <!-- ── PRODUCTS SECTION ── -->
-      <section>
+      
+      <!-- ── CAMPUS MUSIC FEATURE ── -->
+      <section class="bo-feature-section">
         <div class="container">
           <div class="spacing-7em"></div>
-          <div>
-            <div class="w-layout-grid grid-global">
-              <div id="w-node-acaeacf8-12fd-6949-e5b8-f27365b2c484-3587a786" class="heading-wrap">
-                <h2 class="text-style-display"><sup>PRODUCTS</sup></h2>
-              </div>
-              <div id="w-node-_5ad52df4-114d-a785-0efd-c70a6999d05c-3587a786" class="hidden-below-mobile-landspace">
-                <div class="text-style-paragraph">(Current portfolio)</div>
-              </div>
-            </div>
-            <div class="spacing-4-5em"></div>
-          </div>
-          <div class="w-dyn-list">
-            <div role="list" class="work-collection-list w-dyn-items">
-              <div role="listitem" class="w-dyn-item">
-                <a href="work.html" class="collection-link w-inline-block">
-                  <div class="aspect-ratio-1-1 position-relative overflow-hidden border-rounded"><img alt="Campus Music — vinyl record with colorful album art and earphones on a wooden desk" src="images/campus-music.png" loading="lazy" class="media-block"></div>
-                  <div class="spacing-1-5em"></div>
-                  <div class="project-detail">
-                    <div>
-                      <div class="text-style-paragraph">Campus Music</div>
-                      <div class="text-style-paragraph">The premier music platform for student creators and listeners.</div>
-                    </div>
-                    <div class="project-detail-work">
-                      <div class="text-style-paragraph">(</div>
-                      <div class="text-style-paragraph">2026</div>
-                      <div class="text-style-paragraph">)</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div role="listitem" class="w-dyn-item">
-                <a href="work.html" class="collection-link w-inline-block">
-                  <div class="aspect-ratio-1-1 position-relative overflow-hidden border-rounded"><img alt="OriginOS — AI powered personal operating system shown across laptop, phone and smartwatch" src="images/originos.png" loading="lazy" class="media-block"></div>
-                  <div class="spacing-1-5em"></div>
-                  <div class="project-detail">
-                    <div>
-                      <div class="text-style-paragraph">OriginOS</div>
-                      <div class="text-style-paragraph">A personal AI system built to help you think, organize, and move with clarity.</div>
-                    </div>
-                    <div class="project-detail-work">
-                      <div class="text-style-paragraph">(</div>
-                      <div class="text-style-paragraph">2025</div>
-                      <div class="text-style-paragraph">)</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          <div class="bo-feature-label">01 &mdash; Active Product</div>
           <div class="spacing-4-5em"></div>
-          <div class="w-layout-grid grid-global">
-            <div id="w-node-e0b8e498-ed92-b88d-dccb-6405c188770f-3587a786">
-              <div class="spacing-1-75em"></div>
-              <a href="work.html" class="link-block-large w-inline-block"><img src="images/Arrow-Left.svg" loading="lazy" alt="" class="icon-large">
-                <div class="text-style-heading-l">See all products</div>
-                <div class="line-underlined underline-large"></div>
+          <div class="bo-feature-grid">
+            <div class="bo-feature-content">
+              <p class="bo-feature-headline">Campus Music is live.</p>
+              <div class="spacing-2-5em"></div>
+              <p class="bo-feature-body">The music platform built for campus culture. Student creators share, stream, and grow their audience in a space designed around them &mdash; not repurposed from somewhere else.</p>
+              <div class="spacing-3-5em"></div>
+              <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-feature-cta">
+                Visit Campus Music &rarr;
               </a>
+            </div>
+            <div class="bo-feature-img-wrap">
+              <img src="images/campus-music.png" alt="Campus Music &mdash; the music platform for campus culture" class="bo-feature-img">
             </div>
           </div>
           <div class="spacing-7em"></div>
         </div>
       </section>
+
+      <!-- ── STATS STRIP ── -->
+      <div class="bo-stats-strip">
+        <div class="container">
+          <div class="bo-stats-grid">
+            <div class="bo-stat">
+              <div class="bo-stat-number">01</div>
+              <div class="bo-stat-label">Active product</div>
+            </div>
+            <div class="bo-stat-divider"></div>
+            <div class="bo-stat">
+              <div class="bo-stat-number">01</div>
+              <div class="bo-stat-label">In development</div>
+            </div>
+            <div class="bo-stat-divider"></div>
+            <div class="bo-stat">
+              <div class="bo-stat-number">2024</div>
+              <div class="bo-stat-label">Founded</div>
+            </div>
+            <div class="bo-stat-divider"></div>
+            <div class="bo-stat">
+              <div class="bo-stat-number">&infin;</div>
+              <div class="bo-stat-label">Long-term vision</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- ── HOW WE BUILD SECTION ── -->
       <section>
@@ -378,41 +527,7 @@
         </div>
       </section>
 
-      <!-- ── INSIGHTS SECTION ── -->
-      <section>
-        <div class="container-2">
-          <div class="spacing-7em-2"></div>
-          <div>
-            <div class="w-layout-grid grid-global-2">
-              <div id="w-node-fd6bcf88-d30d-d8b3-338f-0b1206f66855-3587a786" class="wrap-33em">
-                <h2>Writing about building, thinking, and what it means to do it well.</h2>
-                <div class="spacing-2-5em-2 hidden-above-mobile-landscape"></div>
-              </div>
-              <div id="w-node-fd6bcf88-d30d-d8b3-338f-0b1206f66859-3587a786">
-                <a href="#" class="link-block-2 w-inline-block">
-                  <div class="text-style-paragraph-2">See all insights</div>
-                  <div class="line-underlined-2"></div>
-                  <div class="line-current-underline-2"></div>
-                </a>
-              </div>
-            </div>
-            <div class="spacing-4-5em-2"></div>
-          </div>
-          <div class="w-dyn-list">
-            <div role="list" class="news-collection-list-2 w-dyn-items">
-              <div role="listitem" class="w-dyn-item"><img src="images/Team-member_2.avif" loading="lazy" sizes="(max-width: 960px) 100vw, 960px" srcset="images/Team-member_2-p-500.avif 500w, images/Team-member_2.avif 960w" alt="BlackOrigin insight feature image">
-                <a href="#" class="w-inline-block">
-                  <div class="text-block"><strong class="bold-text">Why we build one product at a time — and why it gives us an edge</strong></div>
-                  <div><strong>March 2026</strong></div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="spacing-7em-2"></div>
-        </div>
-      </section>
-
-      <!-- ── VISION SECTION ── -->
+            <!-- ── VISION SECTION ── -->
       <section>
         <div class="container">
           <div class="spacing-7em"></div>
@@ -421,9 +536,9 @@
               <h3 class="text-style-heading-l">Not one product. A portfolio built with patience.</h3>
               <div class="spacing-3-5em"></div>
               <div class="wrap-26em">
-                <p class="text-style-paragraph text-color-gray-500">BlackOrigin is not building one app. We are building a portfolio of technology products — each one a deliberate response to a real problem, each one given the time and resources to become something meaningful.</p>
+                <p class="text-style-paragraph text-color-gray-500">Each product BlackOrigin launches is a deliberate answer to a real problem — built with full attention, grown until it earns its place, and designed to become something that lasts.</p>
                 <div class="spacing-1-5em"></div>
-                <p class="text-style-paragraph text-color-gray-500">Our pipeline is intentional. We do not rush new products to market. We move only when we are ready to do the work properly — with the right team, the right foundation, and the right timing.</p>
+                <p class="text-style-paragraph text-color-gray-500">We do not rush the next thing before this one is ready. We move when the team, the foundation, and the timing align. That patience is not a limitation — it is the whole point.</p>
               </div>
               <div class="spacing-3-5em"></div>
               <a href="contact.html" data-wf--link--color="gray-900" data-w-id="a75a1864-5b42-d75e-8545-bb5a642f3a55" class="link-block w-inline-block">
@@ -439,6 +554,22 @@
       </section>
 
     </div>
+
+      <!-- ── ORIGINOS TEASER ── -->
+      <section class="bo-next-section">
+        <div class="container">
+          <div class="spacing-7em"></div>
+          <div class="bo-next-eyebrow">02 &mdash; In Development</div>
+          <div class="spacing-3-5em"></div>
+          <h2 class="bo-next-name">OriginOS</h2>
+          <div class="spacing-2-5em"></div>
+          <p class="bo-next-desc">A personal AI system built to help you think, organize, and move with clarity. Our next product is in active development.</p>
+          <div class="spacing-3-5em"></div>
+          <span class="bo-next-badge">Coming Soon</span>
+          <div class="spacing-7em"></div>
+        </div>
+      </section>
+
   </main>
   <footer class="footer">
     <div class="container">
