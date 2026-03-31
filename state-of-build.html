@@ -26,95 +26,237 @@
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
 
-.bo-sob-layout {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 4rem;
-  align-items: start;
+/* ── Hero ──────────────────────────────────────────── */
+.sob-hero {
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 2rem 6rem;
+  text-align: center;
 }
-@media (max-width: 768px) {
-  .bo-sob-layout { grid-template-columns: 1fr; gap: 2rem; }
+.sob-hero-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(8rem, 28vw, 22rem);
+  font-weight: 800;
+  color: rgba(255,255,255,0.035);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
-.bo-sob-sidebar {
-  position: sticky;
-  top: 2rem;
+.sob-hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
 }
-.bo-sob-sidebar-label {
+.sob-hero h1 {
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #fff;
+  line-height: 0.95;
+  margin: 0 0 2.5rem;
+}
+.sob-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.sob-hero-meta-item {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+}
+.sob-hero-meta-item:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+.sob-hero-scroll {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.sob-hero-scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0));
+}
+
+/* ── Archive bar ───────────────────────────────────── */
+.sob-archive-bar {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 0;
+}
+.sob-archive-bar-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.sob-archive-bar-label {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #9ca3af;
-  margin-bottom: 1rem;
+  white-space: nowrap;
 }
-.bo-sob-archive-item {
-  display: block;
+.sob-archive-bar-item {
   font-size: 0.87rem;
-  color: #374151;
-  text-decoration: none;
-  padding: 0.4rem 0;
-  border-left: 2px solid #e5e7eb;
-  padding-left: 0.75rem;
-  line-height: 1.4;
-}
-.bo-sob-archive-item.active {
-  border-left-color: #111827;
   color: #111827;
   font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #111827;
+  padding-bottom: 1px;
 }
-.bo-sob-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #e5e7eb;
+
+/* ── Article ───────────────────────────────────────── */
+.sob-article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
 }
-.bo-sob-meta-item {}
-.bo-sob-meta-label {
+.sob-lead {
+  font-size: 1.35em;
+  line-height: 1.75;
+  color: #111827;
+  margin-bottom: 4rem;
+  font-weight: 400;
+}
+.sob-section {
+  padding-top: 3rem;
+  margin-top: 3rem;
+  border-top: 1px solid #e5e7eb;
+}
+.sob-section-num {
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #9ca3af;
-  margin-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
-.bo-sob-meta-value {
-  font-size: 1.125em;
+.sob-section h2 {
+  font-size: 1.65em;
+  font-weight: 700;
   color: #111827;
+  margin: 0 0 1.5rem;
+  line-height: 1.25;
 }
-.bo-sob-body h3 {
-  font-size: 1.35em;
-  font-weight: 600;
-  color: #111827;
-  margin: 2.5rem 0 0.75rem;
-}
-.bo-sob-body h3:first-child {
-  margin-top: 0;
-}
-.bo-sob-body p {
+.sob-section p {
   font-size: 1.125em;
   color: #374151;
-  line-height: 1.8;
-  margin: 0 0 1rem;
+  line-height: 1.85;
+  margin: 0 0 1.25rem;
 }
-.bo-sob-pull {
-  border-left: 3px solid #111827;
-  padding: 1rem 0 1rem 1.5rem;
-  margin: 2rem 0;
+.sob-section p:last-child { margin-bottom: 0; }
+
+/* ── Full-bleed pull quote ─────────────────────────── */
+.sob-pullquote {
+  background: #0a0a0a;
+  margin: 5rem -2rem;
+  padding: 6rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.bo-sob-pull p {
-  font-size: 1.25em;
+.sob-pullquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18rem;
+  color: rgba(255,255,255,0.04);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.sob-pullquote p {
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
   font-style: italic;
-  color: #111827;
-  line-height: 1.6;
-  margin: 0;
+  color: #fff;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+.sob-pullquote-attr {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  position: relative;
+}
+
+/* ── Closing CTA ───────────────────────────────────── */
+.sob-cta {
+  background: #0a0a0a;
+  padding: 5rem 2rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+.sob-cta h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+.sob-cta p {
+  font-size: 1.125em;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+}
+.sob-cta-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.sob-cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: #0a0a0a;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.sob-cta-link {
+  display: inline-block;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 2px;
 }
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700"]  }});</script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700,800"]  }});</script>
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js"+t+"ix3",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
@@ -223,83 +365,90 @@
     <div class="mobile-menu-background"></div>
   </div>
   <div class="main-body">
-    <section>
-      <div class="container fill-height">
-        <div class="spacing-4-5em"></div>
-        <div class="text-style-paragraph text-color-gray-500">BlackOrigin Inc. / Annual</div>
-        <div class="spacing-1em"></div>
-        <h1 class="text-style-display">State of<br>Build</h1>
-        <div class="spacing-5em"></div>
+
+    <!-- DARK HERO -->
+    <div class="sob-hero">
+      <div class="sob-hero-watermark">2026</div>
+      <div class="sob-hero-eyebrow">BlackOrigin Inc. &nbsp;·&nbsp; Annual Report</div>
+      <h1>State of<br>Build</h1>
+      <div class="sob-hero-meta">
+        <div class="sob-hero-meta-item">Year One</div>
+        <div class="sob-hero-meta-item">March 2026</div>
+        <div class="sob-hero-meta-item">The Founder</div>
       </div>
-    </section>
-    <div class="divider-gray-200"></div>
-    <section>
-      <div class="container">
-        <div class="spacing-4-5em"></div>
-        <p class="text-style-paragraph" style="max-width:600px;color:#6b7280;">Every year, the founder of BlackOrigin publishes an honest account of what the company built, what was hard, and what is coming next. This is not a press release. It is a record.</p>
-        <div class="spacing-4-5em"></div>
-        <div class="divider-gray-200"></div>
-        <div class="spacing-4-5em"></div>
-
-        <div class="bo-sob-layout">
-
-          <div class="bo-sob-sidebar">
-            <div class="bo-sob-sidebar-label">Archive</div>
-            <a href="state-of-build.html" class="bo-sob-archive-item active">Year One, 2026</a>
-          </div>
-
-          <div>
-            <h2 class="text-style-heading-l" style="margin-bottom:2rem;">Year One, 2026</h2>
-
-            <div class="bo-sob-meta">
-              <div class="bo-sob-meta-item">
-                <div class="bo-sob-meta-label">Published</div>
-                <div class="bo-sob-meta-value">March 2026</div>
-              </div>
-              <div class="bo-sob-meta-item">
-                <div class="bo-sob-meta-label">Edition</div>
-                <div class="bo-sob-meta-value">Year One</div>
-              </div>
-              <div class="bo-sob-meta-item">
-                <div class="bo-sob-meta-label">Author</div>
-                <div class="bo-sob-meta-value">The Founder</div>
-              </div>
-            </div>
-
-            <div class="bo-sob-body">
-
-              <h3>Where we started</h3>
-              <p>BlackOrigin started with a question, not a business plan. The question was simple: why is it so hard for people to access technology that was built for them? Not for institutions. Not for enterprises. For them, specifically.</p>
-              <p>We incorporated in 2026 in Chicago. No office. No funding. Just a clear problem, a strong belief that software can be built with the same care a craftsman gives to physical work, and one product already in motion.</p>
-
-              <div class="bo-sob-pull">
-                <p>"We are not trying to build many things quickly. We are trying to build one thing so well that it earns the right to exist for a long time."</p>
-              </div>
-
-              <h3>Campus Music</h3>
-              <p>Campus Music is BlackOrigin's first product and the clearest expression of what the company believes. It is a platform built for the music community on college campuses, a space that has always had energy but never had the right infrastructure to hold it.</p>
-              <p>The insight behind Campus Music is straightforward. College campuses are where music careers start, where artists find their first audiences, where student promoters figure out how to run events on no budget. But the tools available to them were built for the industry, not for where the industry begins. Campus Music closes that gap.</p>
-              <p>In Year One, Campus Music moved from concept to live product. We built the core experience, put it in front of real users, and listened. Not to validate what we already believed, but to understand what we missed. There was a lot we missed. That is the only honest way to build.</p>
-
-              <h3>What was hard</h3>
-              <p>Doing one thing at a time is harder than it sounds. There is always a reason to add something, to expand the scope, to chase a parallel opportunity. The discipline required to hold focus on a single product, to give it everything before moving on, is not natural. It has to be chosen again every week.</p>
-              <p>We also learned that building for a community requires more patience than building for a market. A market will tell you what it will pay for. A community tells you what it needs, and those are not always the same thing. Campus Music taught us to listen to the second kind of signal even when it is slower and harder to act on.</p>
-              <p>Getting the company's identity right took longer than expected. We knew what we believed. Saying it clearly, without sounding like every other technology company that claims to care about people, required a lot of drafts and a lot of honest feedback.</p>
-
-              <h3>What's next</h3>
-              <p>Campus Music continues. Year Two is about depth, not scale. More features that matter to the people already using it, not features designed to attract people who have not arrived yet.</p>
-              <p>OriginOS is in development. It is the second product and the one that will say something different about what BlackOrigin is capable of building. We are not ready to say more than that yet. When we are, this page will be the first place we say it.</p>
-              <p>The advisory board is active. The people around this company are some of the most experienced builders and operators we have had access to, and their influence is already visible in how we make decisions.</p>
-              <p>We are looking for investors who think in years, not quarters. If that is you, the contact page is open.</p>
-
-            </div>
-          </div>
-
-        </div>
-
-        <div class="spacing-4-5em"></div>
+      <div class="sob-hero-scroll">
+        <div class="sob-hero-scroll-line"></div>
       </div>
-    </section>
+    </div>
+
+    <!-- ARCHIVE BAR -->
+    <div class="sob-archive-bar">
+      <div class="sob-archive-bar-inner">
+        <span class="sob-archive-bar-label">Archive</span>
+        <a href="state-of-build.html" class="sob-archive-bar-item">Year One, 2026</a>
+      </div>
+    </div>
+
+    <!-- ARTICLE BODY -->
+    <div class="sob-article">
+
+      <!-- Lead paragraph -->
+      <p class="sob-lead">Every year, the founder of BlackOrigin publishes an honest account of what the company built, what was hard, and what is coming next. This is not a press release. It is a record.</p>
+
+      <!-- Section 01 -->
+      <div class="sob-section">
+        <div class="sob-section-num">01 &nbsp;·&nbsp; Where we started</div>
+        <h2>A question, not a plan.</h2>
+        <p>BlackOrigin started with a question, not a business plan. The question was simple: why is it so hard for people to access technology that was built for them? Not for institutions. Not for enterprises. For them, specifically.</p>
+        <p>We incorporated in 2026 in Chicago. No office. No funding. Just a clear problem, a strong belief that software can be built with the same care a craftsman gives to physical work, and one product already in motion.</p>
+      </div>
+
+      <!-- Pull quote -->
+      <div class="sob-pullquote">
+        <p>"We are not trying to build many things quickly. We are trying to build one thing so well that it earns the right to exist for a long time."</p>
+        <div class="sob-pullquote-attr">The Founder &nbsp;·&nbsp; 2026</div>
+      </div>
+
+      <!-- Section 02 -->
+      <div class="sob-section">
+        <div class="sob-section-num">02 &nbsp;·&nbsp; What we built</div>
+        <h2>Campus Music goes live.</h2>
+        <p>Campus Music is BlackOrigin's first product and the clearest expression of what the company believes. It is a platform built for the music community on college campuses, a space that has always had energy but never had the right infrastructure to hold it.</p>
+        <p>The insight behind Campus Music is straightforward. College campuses are where music careers start, where artists find their first audiences, where student promoters figure out how to run events on no budget. But the tools available to them were built for the industry, not for where the industry begins. Campus Music closes that gap.</p>
+        <p>In Year One, Campus Music moved from concept to live product. We built the core experience, put it in front of real users, and listened. Not to validate what we already believed, but to understand what we missed. There was a lot we missed. That is the only honest way to build.</p>
+      </div>
+
+      <!-- Section 03 -->
+      <div class="sob-section">
+        <div class="sob-section-num">03 &nbsp;·&nbsp; What was hard</div>
+        <h2>Focus is a daily choice.</h2>
+        <p>Doing one thing at a time is harder than it sounds. There is always a reason to add something, to expand the scope, to chase a parallel opportunity. The discipline required to hold focus on a single product, to give it everything before moving on, is not natural. It has to be chosen again every week.</p>
+        <p>We also learned that building for a community requires more patience than building for a market. A market will tell you what it will pay for. A community tells you what it needs, and those are not always the same thing. Campus Music taught us to listen to the second kind of signal even when it is slower and harder to act on.</p>
+        <p>Getting the company's identity right took longer than expected. We knew what we believed. Saying it clearly, without sounding like every other technology company that claims to care about people, required a lot of drafts and a lot of honest feedback.</p>
+      </div>
+
+      <!-- Section 04 -->
+      <div class="sob-section">
+        <div class="sob-section-num">04 &nbsp;·&nbsp; What's next</div>
+        <h2>Depth before scale.</h2>
+        <p>Campus Music continues. Year Two is about depth, not scale. More features that matter to the people already using it, not features designed to attract people who have not arrived yet.</p>
+        <p>OriginOS is in development. It is the second product and the one that will say something different about what BlackOrigin is capable of building. We are not ready to say more than that yet. When we are, this page will be the first place we say it.</p>
+        <p>The advisory board is active. The people around this company are some of the most experienced builders and operators we have had access to, and their influence is already visible in how we make decisions.</p>
+        <p>We are looking for investors who think in years, not quarters. If that is you, the contact page is open.</p>
+      </div>
+
+    </div>
+
+    <!-- CLOSING CTA -->
+    <div class="sob-cta">
+      <h3>Thinking in years, not quarters.</h3>
+      <p>If you are a builder, operator, or investor who believes in what BlackOrigin is doing, we want to hear from you.</p>
+      <div class="sob-cta-links">
+        <a href="contact.html" class="sob-cta-btn">Connect with us</a>
+        <a href="https://www.campusmusic.app/" target="_blank" class="sob-cta-link">Visit Campus Music ↗</a>
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="container">
         <div class="spacing-4-5em"></div>
