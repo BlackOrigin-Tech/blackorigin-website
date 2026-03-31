@@ -25,6 +25,144 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
+/* ── OriginOS void panel ── */
+.bo-void-panel {
+  position: absolute;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+}
+.bo-void-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px);
+  background-size: 40px 40px;
+  opacity: 0.10;
+  pointer-events: none;
+}
+.bo-void-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 2.5rem;
+  z-index: 2;
+}
+.bo-void-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  animation: bo-fade-in 1.5s ease forwards;
+  opacity: 0;
+}
+.bo-void-meta-row:nth-child(1) { animation-delay: 1.6s; }
+.bo-void-meta-row:nth-child(2) { animation-delay: 1.9s; }
+.bo-void-meta-row:nth-child(3) { animation-delay: 2.2s; }
+.bo-void-meta-row:nth-child(4) { animation-delay: 2.5s; }
+.bo-void-dot-sm {
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.bo-void-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  gap: 0.75rem;
+}
+.bo-void-eyebrow {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+  font-family: 'Courier New', Courier, monospace;
+  animation: bo-fade-in 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+.bo-void-title {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: Inter, sans-serif;
+}
+.bo-void-title-num {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.05);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0;
+  font-weight: 400;
+  user-select: none;
+}
+.bo-void-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0;
+  animation: bo-typing 2s steps(8, end) 0.5s forwards, bo-caret 0.75s step-end 0.5s 4;
+}
+.bo-void-sub {
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  color: rgba(255,255,255,0.3);
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  max-width: 36ch;
+  text-align: center;
+  margin: 0;
+  animation: bo-fade-in 1.5s ease forwards;
+  opacity: 0;
+  animation-delay: 2.8s;
+  line-height: 1.6;
+}
+.bo-void-sub em { color: rgba(255,255,255,0.7); font-style: italic; }
+.bo-void-coords {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 2;
+  animation: bo-fade-in 1.5s ease forwards;
+  opacity: 0;
+  animation-delay: 3s;
+}
+@keyframes bo-typing {
+  from { width: 0 }
+  to   { width: 100% }
+}
+@keyframes bo-caret {
+  from, to { border-color: transparent }
+  50%      { border-color: white }
+}
+@keyframes bo-fade-in {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -127,7 +265,24 @@
         </div>
         <div class="spacing-5em"></div>
         <div class="aspect-ratio-16-9 position-relative overflow-hidden border-rounded">
-          <img loading="lazy" alt="OriginOS — AI-powered personal operating system shown across laptop, phone and smartwatch" src="images/originos.png" class="media-block" style="filter:grayscale(15%);">
+          <div class="bo-void-panel">
+            <div class="bo-void-grid"></div>
+            <div class="bo-void-meta">
+              <div class="bo-void-meta-row"><span class="bo-void-dot-sm"></span><span>Entity: BlackOrigin Holdings</span></div>
+              <div class="bo-void-meta-row"><span class="bo-void-dot-sm"></span><span>Product: OriginOS</span></div>
+              <div class="bo-void-meta-row"><span class="bo-void-dot-sm"></span><span>Focus: Personal AI Infrastructure</span></div>
+              <div class="bo-void-meta-row"><span class="bo-void-dot-sm"></span><span>Status: Initializing Phase_01</span></div>
+            </div>
+            <div class="bo-void-center">
+              <span class="bo-void-eyebrow">BlackOrigin · 2026</span>
+              <h2 class="bo-void-title">
+                <span class="bo-void-title-num">01</span>
+                <span class="bo-void-typing">OriginOS</span>
+              </h2>
+              <p class="bo-void-sub">The architectural substrate for <em>durable</em> intelligence. Built from nothing.</p>
+            </div>
+            <div class="bo-void-coords">41.8781° N, 87.6298° W // CHICAGO, IL</div>
+          </div>
         </div>
       </div>
     </section>
