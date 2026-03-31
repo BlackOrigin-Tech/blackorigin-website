@@ -131,6 +131,76 @@
       color: #9ca3af;
       font-style: italic;
     }
+/* ── OriginOS tile (matches homepage strip) ── */
+.bo-strip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1 / 1;
+  padding: 2.4rem;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.bo-strip-os {
+  background: radial-gradient(ellipse at 80% 15%, #1c1c1c 0%, #0c0c0c 55%, #060606 100%);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.07);
+}
+.bo-strip-os::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 26px 26px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.bo-strip-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.bo-strip-os .bo-strip-top { border-bottom-color: rgba(255,255,255,0.07); }
+.bo-strip-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  font-family: Inter, sans-serif;
+}
+.bo-strip-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: Inter, sans-serif;
+}
+.bo-strip-os .bo-strip-tag { color: rgba(255,255,255,0.35); }
+.bo-strip-tagline {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  max-width: 22ch;
+  font-family: Inter, sans-serif;
+}
+.bo-strip-os .bo-strip-tagline { color: rgba(255,255,255,0.3); }
+.bo-strip-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.bo-strip-name {
+  font-size: clamp(2.6rem, 5vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  margin: 0;
+}
+.bo-strip-os .bo-strip-name { color: #fff; }
+/* constrain tile width to match a single collection-link card */
+.bo-os-tile-wrap { max-width: 360px; }
 </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -299,21 +369,18 @@
           <div class="spacing-4-5em"></div>
         </div>
         <div class="work-collection-list">
-          <a href="originos.html" class="collection-link w-inline-block">
-            <div class="aspect-ratio-1-1 position-relative overflow-hidden border-rounded">
-              <img alt="OriginOS — a personal AI system in development" src="images/originos.png" loading="lazy" class="media-block" style="filter:grayscale(20%);">
-            </div>
-            <div class="spacing-1-5em"></div>
-            <div class="project-detail">
-              <div>
-                <div class="text-style-paragraph">OriginOS</div>
-                <div class="text-style-paragraph text-color-gray-500">A personal AI system built to help you think, organize, and move with clarity.</div>
+          <div class="bo-os-tile-wrap">
+            <a href="originos.html" class="bo-strip bo-strip-os">
+              <div class="bo-strip-top">
+                <span class="bo-strip-num">02</span>
+                <span class="bo-strip-tag">In Development</span>
               </div>
-              <div class="project-detail-work">
-                <div class="text-style-paragraph">(In Development)</div>
+              <p class="bo-strip-tagline">Personal AI for how you actually think.</p>
+              <div class="bo-strip-bottom">
+                <p class="bo-strip-name">OriginOS</p>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
         <div class="spacing-7em"></div>
       </div>
