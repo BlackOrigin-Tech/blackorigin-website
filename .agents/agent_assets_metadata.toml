@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "uU9HUro04t3OBFmIbYPLi"
@@ -12,3 +11,45 @@ id = "6YuiWZdXhgecaOEcj0o6P"
 uri = "file://images/bo-belief-vision.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "bjR7gMzzpHzl0zXNCoXjC"
+uri = "file://images/careers-team.png"
+type = "image"
+title = "generated_image"
+
+[[outputs]]
+id = "kTktcW1WEtUg8GCJ5XJjk"
+uri = "file://attached_assets/stock_images/diverse-team-careers_1.jpg"
+type = "image"
+title = "diverse team people working together startup office"
+
+[[outputs]]
+id = "eHK0zBRK-iaN8_PTSrHzu"
+uri = "file://attached_assets/stock_images/diverse-team-careers_2.jpg"
+type = "image"
+title = "diverse team people working together startup office"
+
+[[outputs]]
+id = "VSMxFhu-NbKoYKghPbzk_"
+uri = "file://attached_assets/stock_images/diverse-team-careers_3.jpg"
+type = "image"
+title = "diverse team people working together startup office"
+
+[[outputs]]
+id = "T1hmQv3nRHoNJPGWTdaqK"
+uri = "file://attached_assets/stock_images/diverse-team-portrait_1.jpg"
+type = "image"
+title = "multiracial group of young professionals smiling together, diverse team portrait, careers"
+
+[[outputs]]
+id = "Hf8NlOfM0Kqg-AEV-j1Zj"
+uri = "file://attached_assets/stock_images/diverse-team-portrait_2.jpg"
+type = "image"
+title = "multiracial group of young professionals smiling together, diverse team portrait, careers"
+
+[[outputs]]
+id = "Y2390GSeA9zuMZY0jQAGw"
+uri = "file://attached_assets/stock_images/diverse-team-portrait_3.jpg"
+type = "image"
+title = "multiracial group of young professionals smiling together, diverse team portrait, careers"
