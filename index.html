@@ -39,561 +39,129 @@
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
 /* ── PRODUCTS SIDE BY SIDE ── */
-.bo-products-section { background: #0a0a0a; color: #fff; }
-.bo-products-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6em;
-  align-items: start;
-}
-.bo-product-col { display: flex; flex-direction: column; }
-.bo-product-eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.42);
-}
-.bo-product-name {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0;
-}
-.bo-product-name--display {
-  font-size: clamp(3rem, 6vw, 6rem);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.bo-product-desc {
-  font-size: 1rem;
-  line-height: 1.68;
-  color: rgba(255,255,255,0.58);
-  max-width: 42ch;
-}
-.bo-product-cta {
-  display: inline-block;
-  font-size: 0.88rem;
-  letter-spacing: 0.03em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: rgba(255,255,255,0.7);
-  transition: color 0.22s;
-}
-.bo-product-cta:hover { color: #fff; }
-@media (max-width: 780px) {
-  .bo-products-grid { grid-template-columns: 1fr; gap: 4em; }
-}
-
-/* ── CAMPUS MUSIC TURNTABLE SECTION ── */
-.bo-cm-section { background: #0a0a0a; color: #fff; }
-.bo-cm-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4em;
-  align-items: center;
-  min-height: 420px;
-}
-.bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
-.bo-cm-label {
-  font-family: var(--font-primary, monospace);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
-.bo-cm-headline {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0.55em 0 0.6em;
-}
-.bo-cm-body {
-  font-size: 1rem;
-  line-height: 1.68;
-  color: rgba(255,255,255,0.6);
-  max-width: 38ch;
-}
-.bo-cm-cta {
-  display: inline-block;
-  margin-top: 2em;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: rgba(255,255,255,0.75);
-  transition: color 0.25s;
-}
-.bo-cm-cta:hover { color: #fff; }
-
-/* ── Turntable: square container, crops into the logo area of the 2400x1500 canvases ── */
-.bo-cm-visual { display: flex; justify-content: center; align-items: center; }
-
-.bo-turntable {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  overflow: hidden;          /* clips the oversized images to show only the logo */
-  cursor: pointer;
-  filter: grayscale(1) brightness(0.85);
-  transition: filter 0.65s ease;
-  flex-shrink: 0;
-}
-.bo-turntable:hover { filter: grayscale(0) brightness(1); }
-
-/*
- * All 4 images are 2400×1500.  The logo lives in approximately:
- *   x: 672–1680  (center ~1176)
- *   y: 105–1400  (center ~750)
- * We scale so the logo height (≈1295px) = 320px  →  scale = 0.247
- * Scaled full image: 593 × 370px
- * Offsets so logo center (1176,750) maps to container center (160,160):
- *   left = -(1176*0.247 - 160) = -(291-160) = -131px
- *   top  = -(750*0.247  - 160) = -(185-160) = -25px
- */
-.bo-tt-layer {
-  position: absolute;
-  width: 593px;
-  height: 370px;
-  top: -25px;
-  left: -131px;
-  mix-blend-mode: screen;   /* black bg → transparent; colours/white → visible */
-  display: block;
-  pointer-events: none;
-}
-
-/* Spinning group wraps the vinyl ring + play button layers */
-.bo-tt-spin {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  transform-origin: 50% 50%;  /* rotates around the container centre = disc centre */
-}
-/* Images inside the spin group use the same crop offset */
-.bo-tt-spin .bo-tt-inner {
-  position: absolute;
-  width: 593px;
-  height: 370px;
-  top: -25px;
-  left: -131px;
-  mix-blend-mode: screen;
-  display: block;
-  pointer-events: none;
-}
-
-/* Hover triggers spin */
-.bo-turntable:hover .bo-tt-spin {
-  animation: bo-vinyl-spin 4s linear infinite;
-}
-@keyframes bo-vinyl-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-@media (max-width: 900px) {
-  .bo-cm-grid { grid-template-columns: 1fr; gap: 3em; }
-  .bo-turntable { width: 260px; height: 260px; }
-  .bo-tt-layer  { width: 482px; height: 301px; top: -21px; left: -107px; }
-  .bo-tt-spin .bo-tt-inner { width: 482px; height: 301px; top: -21px; left: -107px; }
-}
-<!DOCTYPE html>
-<html data-wf-page="69a5ea5b87dc085b3587a786" data-wf-site="69a5ea5987dc085b3587a72a" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>BlackOrigin — Building Technology That Lasts</title>
-  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." name="description">
-  <meta content="BlackOrigin — Building Technology That Lasts" property="og:title">
-  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="og:description">
-  <meta content="BlackOrigin — Building Technology That Lasts" property="twitter:title">
-  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="twitter:description">
-  <meta property="og:type" content="website">
-  <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/blackorigin.webflow.css" rel="stylesheet" type="text/css">
-  <style>
-/* Webflow IX3 preloader override — static export fix */
-[homepage-load], [innerpage-load],
-.navbar, .footer {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-/* Mobile menu: force out of document flow so it can't create a layout gap */
-.mobile-menu {
-  position: fixed !important;
-}
-/* Ensure link text is readable when mobile menu opens */
-.mobile-menu .link-block-large {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-/* Fixed nav stays hidden on homepage until scroll reveals it */
-.primary-navbar-fixed-wrap {
-  display: none !important;
-}
-.preloader { display: none !important; }
-.template-popup { display: none !important; }
-/* ── PRODUCTS SIDE BY SIDE ── */
-.bo-products-section { background: #0a0a0a; color: #fff; }
-.bo-products-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6em;
-  align-items: start;
-}
-.bo-product-col { display: flex; flex-direction: column; }
-.bo-product-eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.42);
-}
-.bo-product-name {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0;
-}
-.bo-product-name--display {
-  font-size: clamp(3rem, 6vw, 6rem);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.bo-product-desc {
-  font-size: 1rem;
-  line-height: 1.68;
-  color: rgba(255,255,255,0.58);
-  max-width: 42ch;
-}
-.bo-product-cta {
-  display: inline-block;
-  font-size: 0.88rem;
-  letter-spacing: 0.03em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: rgba(255,255,255,0.7);
-  transition: color 0.22s;
-}
-.bo-product-cta:hover { color: #fff; }
-@media (max-width: 780px) {
-  .bo-products-grid { grid-template-columns: 1fr; gap: 4em; }
-}
-
-/* ── CAMPUS MUSIC TURNTABLE SECTION ── */
-.bo-cm-section {
+.bo-products-section {
   background: #0a0a0a;
   color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.07);
 }
-.bo-cm-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6em;
-  align-items: center;
-  min-height: 440px;
-}
-.bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
-.bo-cm-label {
-  font-family: var(--font-primary, monospace);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
-.bo-cm-headline {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0.55em 0 0.6em;
-}
-.bo-cm-body {
-  font-size: 1rem;
-  line-height: 1.68;
-  color: rgba(255,255,255,0.6);
-  max-width: 38ch;
-}
-.bo-cm-cta {
-  display: inline-block;
-  margin-top: 2em;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: rgba(255,255,255,0.75);
-  transition: color 0.25s;
-}
-.bo-cm-cta:hover { color: #fff; }
-
-/* ── Image-stack turntable ── */
-.bo-cm-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* Container matches the 2400×1500 canvas aspect ratio */
-.bo-turntable {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  aspect-ratio: 2400 / 1500;   /* = 8/5 — matches all 4 PNG canvases */
-  cursor: pointer;
-  filter: grayscale(1) brightness(0.85);
-  transition: filter 0.65s ease;
-}
-.bo-turntable:hover {
-  filter: grayscale(0) brightness(1);
-}
-/* Every layer is stacked exactly on top of each other */
-.bo-tt-layer {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: block;
-  mix-blend-mode: screen;
-}
-/* Spinning group — wraps the vinyl layers that rotate */
-.bo-tt-spin {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  /* Disc center in the 2400×1500 canvas is approx 46% from left, 50% from top */
-  transform-origin: 46% 50%;
-}
-/* Hover triggers spin */
-.bo-turntable:hover .bo-tt-spin {
-  animation: bo-vinyl-spin 4s linear infinite;
-}
-@keyframes bo-vinyl-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-@media (max-width: 900px) {
-  .bo-cm-grid { grid-template-columns: 1fr; gap: 3em; }
-  .bo-turntable { max-width: 380px; }
-}
-<!DOCTYPE html>
-<html data-wf-page="69a5ea5b87dc085b3587a786" data-wf-site="69a5ea5987dc085b3587a72a" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>BlackOrigin — Building Technology That Lasts</title>
-  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." name="description">
-  <meta content="BlackOrigin — Building Technology That Lasts" property="og:title">
-  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="og:description">
-  <meta content="BlackOrigin — Building Technology That Lasts" property="twitter:title">
-  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="twitter:description">
-  <meta property="og:type" content="website">
-  <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/blackorigin.webflow.css" rel="stylesheet" type="text/css">
-  <style>
-/* Webflow IX3 preloader override — static export fix */
-[homepage-load], [innerpage-load],
-.navbar, .footer {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-/* Mobile menu: force out of document flow so it can't create a layout gap */
-.mobile-menu {
-  position: fixed !important;
-}
-/* Ensure link text is readable when mobile menu opens */
-.mobile-menu .link-block-large {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-/* Fixed nav stays hidden on homepage until scroll reveals it */
-.primary-navbar-fixed-wrap {
-  display: none !important;
-}
-.preloader { display: none !important; }
-.template-popup { display: none !important; }
-/* ── PRODUCTS SIDE BY SIDE ── */
-.bo-products-section { background: #0a0a0a; color: #fff; }
 .bo-products-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6em;
+  grid-template-columns: 1fr 1px 1fr;  /* col · divider · col */
+  gap: 0;
   align-items: start;
+  position: relative;
 }
-.bo-product-col { display: flex; flex-direction: column; }
+/* Vertical divider column */
+.bo-products-divider {
+  background: rgba(255,255,255,0.09);
+  align-self: stretch;
+}
+.bo-product-col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4em;
+}
+.bo-product-col:first-child { padding-left: 0; }
+.bo-product-col:last-child  { padding-right: 0; }
+
 .bo-product-eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 2rem;
 }
+/* Both headings are the same scale — visual balance */
 .bo-product-name {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   color: #fff;
-  margin: 0;
-}
-.bo-product-name--display {
-  font-size: clamp(3rem, 6vw, 6rem);
-  letter-spacing: -0.03em;
-  line-height: 1;
+  margin: 0 0 1.8rem 0;
 }
 .bo-product-desc {
-  font-size: 1rem;
-  line-height: 1.68;
-  color: rgba(255,255,255,0.58);
-  max-width: 42ch;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.52);
+  max-width: 36ch;
+  margin: 0 0 2.2rem 0;
 }
-.bo-product-cta {
-  display: inline-block;
-  font-size: 0.88rem;
-  letter-spacing: 0.03em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: rgba(255,255,255,0.7);
-  transition: color 0.22s;
-}
-.bo-product-cta:hover { color: #fff; }
-@media (max-width: 780px) {
-  .bo-products-grid { grid-template-columns: 1fr; gap: 4em; }
-}
-
-/* ── CAMPUS MUSIC TURNTABLE SECTION ── */
-.bo-cm-section {
-  background: #0a0a0a;
-  color: #fff;
-}
-.bo-cm-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6em;
+/* Live status pill */
+.bo-live-pill {
+  display: inline-flex;
   align-items: center;
-  min-height: 520px;
-}
-.bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
-.bo-cm-label {
-  font-family: var(--font-primary, monospace);
+  gap: 7px;
+  margin-bottom: 2rem;
   font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 0;
+  color: rgba(255,255,255,0.55);
 }
-.bo-cm-headline {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0.55em 0 0.6em;
-}
-.bo-cm-body {
-  font-size: 1rem;
-  line-height: 1.68;
-  color: rgba(255,255,255,0.6);
-  max-width: 38ch;
-}
-.bo-cm-cta {
+.bo-live-dot {
   display: inline-block;
-  margin-top: 2em;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: rgba(255,255,255,0.75);
-  transition: color 0.25s;
-}
-.bo-cm-cta:hover { color: #fff; }
-
-/* ── Turntable Player ── */
-.bo-cm-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.bo-turntable {
-  position: relative;
-  width: 420px;
-  height: 420px;
-  cursor: pointer;
-  filter: grayscale(1) brightness(0.85);
-  transition: filter 0.6s ease;
-}
-.bo-turntable:hover {
-  filter: grayscale(0) brightness(1);
-}
-/* C-ring layer (static) */
-.bo-tt-ring {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: contain;
-  mix-blend-mode: screen;
-  z-index: 1;
-}
-/* Tonearm layer (static, on top) */
-.bo-tt-arm {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: contain;
-  mix-blend-mode: screen;
-  z-index: 3;
-  pointer-events: none;
-}
-/* Vinyl disc — spins on hover — matches Campus Music logo */
-.bo-tt-disc {
-  position: absolute;
-  top: 63px;
-  left: 58px;
-  width: 294px;
-  height: 294px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #111;
-  border: 5px solid #fff;        /* outer white ring */
-  box-shadow: inset 0 0 0 4px #111, inset 0 0 0 7px rgba(255,255,255,0.55);
-  display: flex;
+  background: #4ade80;
+  box-shadow: 0 0 0 0 rgba(74,222,128,0.6);
+  animation: bo-pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes bo-pulse-dot {
+  0%   { box-shadow: 0 0 0 0   rgba(74,222,128,0.55); }
+  60%  { box-shadow: 0 0 0 7px rgba(74,222,128,0); }
+  100% { box-shadow: 0 0 0 0   rgba(74,222,128,0); }
+}
+/* CTA link */
+.bo-product-cta {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  z-index: 2;
-  transform-origin: center center;
+  gap: 6px;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: rgba(255,255,255,0.65);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 2px;
+  transition: color 0.22s, border-color 0.22s;
+  width: fit-content;
 }
-/* Large play triangle — matches Campus Music logo proportions */
-.bo-tt-tri {
-  width: 68%;
-  height: 68%;
-  margin-left: 10%;  /* optical right-shift to visually center the triangle */
-  flex-shrink: 0;
+.bo-product-cta:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.6);
 }
-
-/* Spin animation — triggered by parent hover */
-.bo-turntable:hover .bo-tt-disc {
-  animation: bo-vinyl-spin 4s linear infinite;
+/* Coming Soon badge — compact inline pill */
+.bo-cs-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  width: fit-content;
+  margin-bottom: 2rem;
 }
-@keyframes bo-vinyl-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-
-
-@media (max-width: 900px) {
-  .bo-cm-grid   { grid-template-columns: 1fr; gap: 3em; }
-  .bo-turntable { width: 320px; height: 320px; }
-  .bo-tt-disc   { top: 48px; left: 44px; width: 224px; height: 224px; }
-  .bo-tt-disc::before { width: 178px; height: 178px; }
-  .bo-tt-disc-inner   { width: 76px; height: 76px; }
+@media (max-width: 780px) {
+  .bo-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .bo-products-divider {
+    display: none;
+  }
+  .bo-product-col {
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,0.09);
+    padding-top: 3.5rem;
+    margin-top: 3.5rem;
+  }
+  .bo-product-col:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
 }
 
 /* ── ORIGINOS NEURAL ORBIT ── */
@@ -1071,23 +639,23 @@
             <!-- ── Campus Music ── -->
             <div class="bo-product-col">
               <div class="bo-product-eyebrow">01 &mdash; Active Product</div>
-              <div class="spacing-3-5em"></div>
               <h2 class="bo-product-name">Campus Music<br>is live.</h2>
-              <div class="spacing-2-5em"></div>
+              <div class="bo-live-pill">
+                <span class="bo-live-dot"></span>Live now
+              </div>
               <p class="bo-product-desc">The music platform built for campus culture. Student creators share, stream, and grow their audience in a space designed around them &mdash; not repurposed from somewhere else.</p>
-              <div class="spacing-3-5em"></div>
               <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-product-cta">Visit Campus Music &rarr;</a>
             </div>
+
+            <!-- ── Vertical divider ── -->
+            <div class="bo-products-divider"></div>
 
             <!-- ── OriginOS ── -->
             <div class="bo-product-col">
               <div class="bo-product-eyebrow">02 &mdash; In Development</div>
-              <div class="spacing-3-5em"></div>
-              <h2 class="bo-product-name bo-product-name--display">OriginOS</h2>
-              <div class="spacing-2-5em"></div>
+              <h2 class="bo-product-name">OriginOS</h2>
+              <div class="bo-cs-badge">Coming Soon</div>
               <p class="bo-product-desc">A personal AI system built to help you think, organize, and move with clarity. Designed around how people actually work &mdash; not how software assumes they do.</p>
-              <div class="spacing-3-5em"></div>
-              <span class="bo-next-badge">Coming Soon</span>
             </div>
 
           </div>
