@@ -132,6 +132,15 @@
       font-style: italic;
     }
 /* ── OriginOS tile (matches homepage strip) ── */
+.bo-strips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 640px) {
+  .bo-strips { grid-template-columns: 1fr; gap: 0.75rem; }
+  .bo-strip { aspect-ratio: auto; min-height: 260px; padding: 2rem; }
+}
 .bo-strip {
   display: flex;
   flex-direction: column;
@@ -199,8 +208,6 @@
   margin: 0;
 }
 .bo-strip-os .bo-strip-name { color: #fff; }
-/* constrain tile width to match a single collection-link card */
-.bo-os-tile-wrap { max-width: 360px; }
 </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -368,19 +375,17 @@
           </div>
           <div class="spacing-4-5em"></div>
         </div>
-        <div class="work-collection-list">
-          <div class="bo-os-tile-wrap">
-            <a href="originos.html" class="bo-strip bo-strip-os">
-              <div class="bo-strip-top">
-                <span class="bo-strip-num">02</span>
-                <span class="bo-strip-tag">In Development</span>
-              </div>
-              <p class="bo-strip-tagline">Personal AI for how you actually think.</p>
-              <div class="bo-strip-bottom">
-                <p class="bo-strip-name">OriginOS</p>
-              </div>
-            </a>
-          </div>
+        <div class="bo-strips">
+          <a href="originos.html" class="bo-strip bo-strip-os">
+            <div class="bo-strip-top">
+              <span class="bo-strip-num">02</span>
+              <span class="bo-strip-tag">In Development</span>
+            </div>
+            <p class="bo-strip-tagline">Personal AI for how you actually think.</p>
+            <div class="bo-strip-bottom">
+              <p class="bo-strip-name">OriginOS</p>
+            </div>
+          </a>
         </div>
         <div class="spacing-7em"></div>
       </div>
