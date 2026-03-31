@@ -38,65 +38,48 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
-/* ── PRODUCTS SIDE BY SIDE ── */
-.bo-products-section {
-  background: #0a0a0a;
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,0.07);
+/* ── PRODUCTS LIST ── */
+.bo-products-list {
+  border-top: 1px solid #e8e8e8;
 }
-.bo-products-grid {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;  /* col · divider · col */
-  gap: 0;
-  align-items: start;
-  position: relative;
-}
-/* Vertical divider column */
-.bo-products-divider {
-  background: rgba(255,255,255,0.09);
-  align-self: stretch;
-}
-.bo-product-col {
+.bo-product-row {
   display: flex;
-  flex-direction: column;
-  padding: 0 4em;
+  align-items: center;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid #e8e8e8;
+  gap: 2rem;
+  text-decoration: none;
+  color: inherit;
 }
-.bo-product-col:first-child { padding-left: 0; }
-.bo-product-col:last-child  { padding-right: 0; }
-
-.bo-product-eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
-  margin-bottom: 2rem;
+.bo-product-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: #bbb;
+  min-width: 2rem;
+  font-variant-numeric: tabular-nums;
 }
-/* Both headings are the same scale — visual balance */
-.bo-product-name {
-  font-size: clamp(2.6rem, 4.5vw, 4rem);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.025em;
-  color: #fff;
-  margin: 0 0 1.8rem 0;
+.bo-product-title {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #111;
+  flex: 1;
 }
-.bo-product-desc {
-  font-size: 0.96rem;
-  line-height: 1.72;
-  color: rgba(255,255,255,0.52);
-  max-width: 36ch;
-  margin: 0 0 2.2rem 0;
+a.bo-product-row .bo-product-title {
+  transition: color 0.18s;
 }
-/* Live status pill */
-.bo-live-pill {
+a.bo-product-row:hover .bo-product-title {
+  color: #555;
+}
+.bo-product-status {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  margin-bottom: 2rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: #999;
+  white-space: nowrap;
 }
 .bo-live-dot {
   display: inline-block;
@@ -106,137 +89,13 @@
   background: #4ade80;
   box-shadow: 0 0 0 0 rgba(74,222,128,0.6);
   animation: bo-pulse-dot 2.4s ease-in-out infinite;
+  flex-shrink: 0;
 }
 @keyframes bo-pulse-dot {
   0%   { box-shadow: 0 0 0 0   rgba(74,222,128,0.55); }
   60%  { box-shadow: 0 0 0 7px rgba(74,222,128,0); }
   100% { box-shadow: 0 0 0 0   rgba(74,222,128,0); }
 }
-/* CTA link */
-.bo-product-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.88rem;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  color: rgba(255,255,255,0.65);
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  padding-bottom: 2px;
-  transition: color 0.22s, border-color 0.22s;
-  width: fit-content;
-}
-.bo-product-cta:hover {
-  color: #fff;
-  border-color: rgba(255,255,255,0.6);
-}
-/* Coming Soon badge — compact inline pill */
-.bo-cs-badge {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 100px;
-  padding: 5px 14px;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
-  width: fit-content;
-  margin-bottom: 2rem;
-}
-@media (max-width: 780px) {
-  .bo-products-grid {
-    grid-template-columns: 1fr;
-  }
-  .bo-products-divider {
-    display: none;
-  }
-  .bo-product-col {
-    padding: 0;
-    border-top: 1px solid rgba(255,255,255,0.09);
-    padding-top: 3.5rem;
-    margin-top: 3.5rem;
-  }
-  .bo-product-col:first-child {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 0;
-  }
-}
-
-/* ── ORIGINOS NEURAL ORBIT ── */
-.bo-next-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6em;
-  align-items: center;
-  min-height: 520px;
-}
-.bo-next-text { display: flex; flex-direction: column; justify-content: center; }
-.bo-next-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-.bo-orb-svg {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-  overflow: visible;
-}
-/* Orbital ring animations */
-.bo-orb-r1 {
-  transform-origin: 250px 250px;
-  animation: bo-rs1 16s linear infinite;
-}
-.bo-orb-r2 {
-  transform-origin: 250px 250px;
-  animation: bo-rs2 26s linear infinite;
-}
-.bo-orb-r3 {
-  transform-origin: 250px 250px;
-  animation: bo-rs3 38s linear infinite;
-}
-.bo-orb-r4 {
-  transform-origin: 250px 250px;
-  animation: bo-rs4 52s linear infinite;
-}
-/* Slow drift of whole system */
-.bo-orb-system {
-  transform-origin: 250px 250px;
-  animation: bo-drift 90s linear infinite;
-}
-@keyframes bo-rs1 { from { transform: rotate(-20deg); } to { transform: rotate(340deg); } }
-@keyframes bo-rs2 { from { transform: rotate(42deg); }  to { transform: rotate(402deg); } }
-@keyframes bo-rs3 { from { transform: rotate(-70deg); } to { transform: rotate(290deg); } }
-@keyframes bo-rs4 { from { transform: rotate(115deg); } to { transform: rotate(475deg); } }
-@keyframes bo-drift { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-/* Center node pulse */
-.bo-orb-center { animation: bo-cpulse 4s ease-in-out infinite; }
-.bo-orb-ping   { animation: bo-ping 4s ease-out infinite; }
-.bo-orb-ping-2 { animation: bo-ping 4s ease-out 1.8s infinite; }
-@keyframes bo-cpulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.55; }
-}
-@keyframes bo-ping {
-  0%   { r: 8;  opacity: 0.25; }
-  100% { r: 55; opacity: 0; }
-}
-/* Individual node flicker */
-.bo-orb-node { animation: bo-nflicker 6s ease-in-out infinite; }
-.bo-orb-node:nth-child(2n)  { animation-delay: -2.1s; }
-.bo-orb-node:nth-child(3n)  { animation-delay: -4.3s; }
-@keyframes bo-nflicker {
-  0%, 85%, 100% { opacity: 1; }
-  90%            { opacity: 0.35; }
-}
-@media (max-width: 768px) {
-  .bo-next-grid { grid-template-columns: 1fr; gap: 3em; }
-  .bo-orb-svg   { max-width: 320px; }
-}
-
 /* ── TICKER ── */
 .bo-ticker-wrap {
   background: #0a0a0a;
@@ -267,45 +126,6 @@
 @keyframes bo-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-/* ── CAMPUS MUSIC FEATURE ── */
-.bo-feature-section { background: #f5f5f3; }
-.bo-feature-label { color: #888; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
-.bo-feature-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5em;
-  align-items: center;
-}
-.bo-feature-content { display: flex; flex-direction: column; }
-.bo-feature-headline { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.1; color: #111; margin: 0; }
-.bo-feature-body { color: #666; line-height: 1.7; max-width: 36em; }
-.bo-feature-img-wrap {
-  border-radius: 16px;
-  overflow: hidden;
-  background: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.bo-feature-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.bo-feature-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #111;
-  text-decoration: none;
-  border-bottom: 1px solid #111;
-  padding-bottom: 2px;
-  width: fit-content;
-  transition: opacity 0.2s;
-}
-.bo-feature-cta:hover { opacity: 0.6; }
-@media (max-width: 768px) {
-  .bo-feature-grid { grid-template-columns: 1fr; gap: 2.5em; }
 }
 
 /* ── STATS STRIP ── */
@@ -350,40 +170,6 @@
   .bo-stat { flex: 1 0 40%; }
 }
 
-/* ── ORIGINOS TEASER ── */
-.bo-next-section { background: #0a0a0a; }
-.bo-next-eyebrow {
-  font-family: Inter, sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-.bo-next-name {
-  font-family: Inter, sans-serif;
-  font-size: clamp(3.5rem, 8vw, 8rem);
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin: 0;
-}
-.bo-next-desc {
-  max-width: 36em;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.7;
-}
-.bo-next-badge {
-  display: inline-block;
-  padding: 0.35em 1em;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 999px;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  font-family: Inter, sans-serif;
-}
 
 </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -630,36 +416,25 @@
       </section>
 
       
-      <!-- ── PRODUCTS: SIDE BY SIDE ── -->
-      <section class="bo-products-section">
+      <!-- ── PRODUCTS LIST ── -->
+      <section>
         <div class="container">
-          <div class="spacing-7em"></div>
-          <div class="bo-products-grid">
-
-            <!-- ── Campus Music ── -->
-            <div class="bo-product-col">
-              <div class="bo-product-eyebrow">01 &mdash; Active Product</div>
-              <h2 class="bo-product-name">Campus Music</h2>
-              <div class="bo-live-pill">
-                <span class="bo-live-dot"></span>Live now
-              </div>
-              <p class="bo-product-desc">The music platform built for campus culture. Student creators share, stream, and grow their audience in a space designed around them &mdash; not repurposed from somewhere else.</p>
-              <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-product-cta">Visit Campus Music &rarr;</a>
+          <div class="spacing-4-5em"></div>
+          <div class="text-style-paragraph text-color-gray-500">What we&#8217;re building</div>
+          <div class="spacing-2-5em"></div>
+          <div class="bo-products-list">
+            <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-product-row">
+              <span class="bo-product-num">01</span>
+              <span class="bo-product-title">Campus Music</span>
+              <span class="bo-product-status"><span class="bo-live-dot"></span>Live</span>
+            </a>
+            <div class="bo-product-row">
+              <span class="bo-product-num">02</span>
+              <span class="bo-product-title">OriginOS</span>
+              <span class="bo-product-status">In Development</span>
             </div>
-
-            <!-- ── Vertical divider ── -->
-            <div class="bo-products-divider"></div>
-
-            <!-- ── OriginOS ── -->
-            <div class="bo-product-col">
-              <div class="bo-product-eyebrow">02 &mdash; In Development</div>
-              <h2 class="bo-product-name">OriginOS</h2>
-              <div class="bo-cs-badge">Coming Soon</div>
-              <p class="bo-product-desc">A personal AI system built to help you think, organize, and move with clarity. Designed around how people actually work &mdash; not how software assumes they do.</p>
-            </div>
-
           </div>
-          <div class="spacing-7em"></div>
+          <div class="spacing-4-5em"></div>
         </div>
       </section>
 
