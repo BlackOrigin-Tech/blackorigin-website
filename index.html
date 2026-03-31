@@ -195,37 +195,6 @@
   .bo-strips { grid-template-columns: 1fr; gap: 0.75rem; }
   .bo-strip { aspect-ratio: auto; min-height: 260px; padding: 2rem; }
 }
-/* ── TICKER ── */
-.bo-ticker-wrap {
-  background: #0a0a0a;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  overflow: hidden;
-  padding: 13px 0;
-  white-space: nowrap;
-}
-.bo-ticker-track {
-  display: inline-flex;
-  align-items: center;
-  animation: bo-scroll 28s linear infinite;
-}
-.bo-ticker-item {
-  font-family: Inter, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  padding: 0 2.2em;
-}
-.bo-ticker-dot {
-  color: rgba(255,255,255,0.18);
-  font-size: 0.6rem;
-}
-@keyframes bo-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 
 
 
@@ -428,20 +397,6 @@
       </div>
     </section>
 
-    <!-- ── TICKER ── -->
-    <div class="bo-ticker-wrap">
-      <div class="bo-ticker-track">
-        <span class="bo-ticker-item">One product at a time</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Technology first</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Built to scale</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Creator first</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Building since 2024</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">One product at a time</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Technology first</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Built to scale</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Creator first</span><span class="bo-ticker-dot">&#9679;</span>
-        <span class="bo-ticker-item">Building since 2024</span><span class="bo-ticker-dot">&#9679;</span>
-      </div>
     </div>
     <div section-scroll="body" class="main-body">
 
