@@ -26,6 +26,111 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
+    .bo-status-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #16a34a;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .bo-status-live::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #16a34a;
+      flex-shrink: 0;
+    }
+    .bo-status-dev {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6b7280;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+    .bo-status-dev::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #9ca3af;
+      flex-shrink: 0;
+    }
+    .bo-product-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .bo-product-card-static {
+      display: block;
+      cursor: default;
+    }
+    .bo-product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      background: #f3f4f6;
+    }
+    .bo-product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .bo-product-card:hover .bo-product-img img {
+      transform: scale(1.03);
+    }
+    .bo-product-meta { padding-top: 1.5rem; }
+    .bo-product-name {
+      font-size: 1.35em;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+    .bo-product-desc {
+      font-size: 1.125em;
+      color: #6b7280;
+      line-height: 1.65;
+      margin: 0 0 1.25rem;
+      max-width: 340px;
+    }
+    .bo-product-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .bo-visit-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+      text-decoration: none;
+      border-bottom: 1.5px solid #111827;
+      padding-bottom: 1px;
+    }
+    .bo-visit-link:hover { opacity: 0.6; }
+    .bo-coming-soon {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      font-style: italic;
+    }
 </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -121,43 +226,54 @@
     <section>
       <div class="container fill-height">
         <div class="spacing-4-5em"></div>
-        <div class="w-layout-grid grid-global">
-          <h1 innerpage-load="title" id="w-node-_5c4c5517-da8a-2c78-a3e5-6d76341ab59f-3587a787" class="text-style-display">PRODUCTS</h1>
-          <div class="spacing-2-5em hidden-above-mobile-landscape"></div>
-          <div id="w-node-_5c4c5517-da8a-2c78-a3e5-6d76341ab5a2-3587a787" class="display-flex-start wrap-33em">
-            <p class="text-style-paragraph text-color-gray-500">One product at a time. Each one earns our full attention, our best thinking, and our long-term commitment.</p>
-          </div>
-        </div>
+        <div class="text-style-paragraph text-color-gray-500">BlackOrigin Inc. / Products</div>
+        <div class="spacing-1em"></div>
+        <h1 class="text-style-display" style="text-align:left;white-space:nowrap;">Products</h1>
+        <div class="spacing-2-5em"></div>
+        <p class="text-style-paragraph text-color-gray-500" style="max-width:480px;">One product at a time. Each one earns our full attention, our best thinking, and our long-term commitment.</p>
         <div class="spacing-5em"></div>
-        <div innerpage-load="content">
-          <div class="work-collection-list">
-            <a data-w-id="campus-music-card" href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="collection-link w-inline-block">
-              <div class="aspect-ratio-1-1 position-relative overflow-hidden border-rounded"><img alt="Campus Music, vinyl record with colorful album art and earphones on a wooden desk" src="images/campus-music.png" loading="lazy" class="media-block"></div>
-              <div class="spacing-1-5em"></div>
-              <div class="project-detail">
-                <div>
-                  <div class="text-style-paragraph">Campus Music</div>
-                  <div class="text-style-paragraph text-color-gray-500">The music platform built for campus culture, stream, discover, and support student artists.</div>
-                </div>
-                <div class="project-detail-work">
-                  <div class="text-style-paragraph">(Active)</div>
-                </div>
+      </div>
+    </section>
+    <div class="divider-gray-200"></div>
+    <section>
+      <div class="container">
+        <div class="spacing-4-5em"></div>
+        <div class="work-collection-list">
+
+          <!-- Campus Music -->
+          <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-product-card">
+            <div class="bo-product-img">
+              <img alt="Campus Music — the music platform for campus culture" src="images/campus-music.png" loading="lazy">
+            </div>
+            <div class="bo-product-meta">
+              <div class="bo-product-footer" style="margin-bottom:0.85rem;">
+                <span class="bo-status-live">Live</span>
               </div>
-            </a>
-            <a data-w-id="originos-card" href="#" class="collection-link w-inline-block">
-              <div class="aspect-ratio-1-1 position-relative overflow-hidden border-rounded"><img alt="OriginOS, AI powered personal operating system shown across laptop, phone and smartwatch" src="images/originos.png" loading="lazy" class="media-block"></div>
-              <div class="spacing-1-5em"></div>
-              <div class="project-detail">
-                <div>
-                  <div class="text-style-paragraph">OriginOS</div>
-                  <div class="text-style-paragraph text-color-gray-500">A personal AI system built to help you think, organize, and move with clarity.</div>
-                </div>
-                <div class="project-detail-work">
-                  <div class="text-style-paragraph">(In Development)</div>
-                </div>
+              <div class="bo-product-name">Campus Music</div>
+              <p class="bo-product-desc">The music platform built for campus culture. Stream, discover, and support student artists at your school.</p>
+              <div class="bo-product-footer">
+                <span class="bo-visit-link">campusmusic.app ↗</span>
               </div>
-            </a>
+            </div>
+          </a>
+
+          <!-- OriginOS -->
+          <div class="bo-product-card-static">
+            <div class="bo-product-img">
+              <img alt="OriginOS — a personal AI system in development" src="images/originos.png" loading="lazy" style="filter:grayscale(20%);">
+            </div>
+            <div class="bo-product-meta">
+              <div class="bo-product-footer" style="margin-bottom:0.85rem;">
+                <span class="bo-status-dev">In Development</span>
+              </div>
+              <div class="bo-product-name">OriginOS</div>
+              <p class="bo-product-desc">A personal AI system built to help you think, organize, and move with clarity. More details coming soon.</p>
+              <div class="bo-product-footer">
+                <span class="bo-coming-soon">Not yet available</span>
+              </div>
+            </div>
           </div>
+
         </div>
         <div class="spacing-7em"></div>
       </div>
