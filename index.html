@@ -67,12 +67,13 @@
 .bo-strip-cm {
   background: radial-gradient(ellipse at 20% 90%, #e8e0d4 0%, #f2ede6 55%, #f6f2ed 100%);
   color: #111;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
   transition: transform 0.32s ease, box-shadow 0.32s ease, background 0.32s ease;
 }
 .bo-strip-cm:hover {
   background: radial-gradient(ellipse at 20% 90%, #e1d9cc 0%, #ebe4dc 55%, #eee9e3 100%);
   transform: translateY(-5px);
-  box-shadow: 0 28px 72px rgba(0,0,0,0.11);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08), 0 28px 72px rgba(0,0,0,0.11);
 }
 .bo-strip-cm::before {
   content: '';
@@ -92,20 +93,37 @@
 .bo-strip-os {
   background: radial-gradient(ellipse at 80% 15%, #1c1c1c 0%, #0c0c0c 55%, #060606 100%);
   color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.07);
 }
 .bo-strip-os::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
   background-size: 26px 26px;
   border-radius: inherit;
   pointer-events: none;
 }
+.bo-strip-os::after {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  width: 55%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle, rgba(99,102,241,0.22) 0%, rgba(139,92,246,0.08) 45%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
 .bo-strip-top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.bo-strip-os .bo-strip-top {
+  border-bottom-color: rgba(255,255,255,0.07);
 }
 .bo-strip-num {
   font-size: 0.7rem;
@@ -139,10 +157,10 @@
   justify-content: space-between;
 }
 .bo-strip-name {
-  font-size: clamp(2.2rem, 4vw, 5rem);
+  font-size: clamp(2.6rem, 5vw, 6.5rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
   margin: 0;
 }
 .bo-strip-cm .bo-strip-name { color: #111; }
