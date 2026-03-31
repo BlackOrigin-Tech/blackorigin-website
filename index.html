@@ -121,7 +121,7 @@
   z-index: 3;
   pointer-events: none;
 }
-/* Vinyl disc — spins on hover */
+/* Vinyl disc — spins on hover — matches Campus Music logo */
 .bo-tt-disc {
   position: absolute;
   top: 63px;
@@ -130,54 +130,20 @@
   height: 294px;
   border-radius: 50%;
   background: #111;
-  border: 3px solid #fff;
+  border: 5px solid #fff;        /* outer white ring */
+  box-shadow: inset 0 0 0 4px #111, inset 0 0 0 7px rgba(255,255,255,0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
   transform-origin: center center;
 }
-/* White groove ring */
-.bo-tt-disc::before {
-  content: '';
-  position: absolute;
-  width: 234px;
-  height: 234px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.55);
-  pointer-events: none;
-}
-/* Inner label circle */
-.bo-tt-disc-inner {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #1a1a1a;
-  border: 1.5px solid rgba(255,255,255,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* Center spindle dot */
-.bo-tt-disc-inner::after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.6);
-}
-/* Play button SVG inside the disc */
-.bo-tt-play {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  margin-left: 5px; /* optical center for triangle */
+/* Large play triangle — matches Campus Music logo proportions */
+.bo-tt-tri {
+  width: 68%;
+  height: 68%;
+  margin-left: 10%;  /* optical right-shift to visually center the triangle */
+  flex-shrink: 0;
 }
 
 /* Spin animation — triggered by parent hover */
@@ -189,21 +155,7 @@
   to   { transform: rotate(360deg); }
 }
 
-/* Extra groove rings */
-.bo-tt-groove-1 {
-  position: absolute;
-  width: 194px; height: 194px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.18);
-  pointer-events: none;
-}
-.bo-tt-groove-2 {
-  position: absolute;
-  width: 158px; height: 158px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  pointer-events: none;
-}
+
 
 @media (max-width: 900px) {
   .bo-cm-grid   { grid-template-columns: 1fr; gap: 3em; }
@@ -704,16 +656,10 @@
 
                 <!-- Layer 2: Vinyl disc — spins on hover -->
                 <div class="bo-tt-disc">
-                  <div class="bo-tt-groove-1"></div>
-                  <div class="bo-tt-groove-2"></div>
-                  <div class="bo-tt-disc-inner">
-                    <!-- play triangle -->
-                    <div class="bo-tt-play">
-                      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
-                        <polygon points="8,4 32,18 8,32" fill="white" opacity="0.9"/>
-                      </svg>
-                    </div>
-                  </div>
+                  <!-- Large play triangle matching the Campus Music logo -->
+                  <svg class="bo-tt-tri" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="12,5 95,50 12,95" fill="white"/>
+                  </svg>
                 </div>
 
                 <!-- Layer 3: Tonearm (static, on top) -->
