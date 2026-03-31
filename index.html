@@ -38,6 +38,181 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
+/* ── CAMPUS MUSIC TURNTABLE SECTION ── */
+.bo-cm-section {
+  background: #0a0a0a;
+  color: #fff;
+}
+.bo-cm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6em;
+  align-items: center;
+  min-height: 520px;
+}
+.bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
+.bo-cm-label {
+  font-family: var(--font-primary, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0;
+}
+.bo-cm-headline {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0.55em 0 0.6em;
+}
+.bo-cm-body {
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgba(255,255,255,0.6);
+  max-width: 38ch;
+}
+.bo-cm-cta {
+  display: inline-block;
+  margin-top: 2em;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.25s;
+}
+.bo-cm-cta:hover { color: #fff; }
+
+/* ── Turntable Player ── */
+.bo-cm-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bo-turntable {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  cursor: pointer;
+  filter: grayscale(1) brightness(0.85);
+  transition: filter 0.6s ease;
+}
+.bo-turntable:hover {
+  filter: grayscale(0) brightness(1);
+}
+/* C-ring layer (static) */
+.bo-tt-ring {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+/* Tonearm layer (static, on top) */
+.bo-tt-arm {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  z-index: 3;
+  pointer-events: none;
+}
+/* Vinyl disc — spins on hover */
+.bo-tt-disc {
+  position: absolute;
+  top: 63px;
+  left: 58px;
+  width: 294px;
+  height: 294px;
+  border-radius: 50%;
+  background: #111;
+  border: 3px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transform-origin: center center;
+}
+/* White groove ring */
+.bo-tt-disc::before {
+  content: '';
+  position: absolute;
+  width: 234px;
+  height: 234px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  pointer-events: none;
+}
+/* Inner label circle */
+.bo-tt-disc-inner {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Center spindle dot */
+.bo-tt-disc-inner::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+}
+/* Play button SVG inside the disc */
+.bo-tt-play {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-left: 5px; /* optical center for triangle */
+}
+
+/* Spin animation — triggered by parent hover */
+.bo-turntable:hover .bo-tt-disc {
+  animation: bo-vinyl-spin 4s linear infinite;
+}
+@keyframes bo-vinyl-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Extra groove rings */
+.bo-tt-groove-1 {
+  position: absolute;
+  width: 194px; height: 194px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  pointer-events: none;
+}
+.bo-tt-groove-2 {
+  position: absolute;
+  width: 158px; height: 158px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .bo-cm-grid   { grid-template-columns: 1fr; gap: 3em; }
+  .bo-turntable { width: 320px; height: 320px; }
+  .bo-tt-disc   { top: 48px; left: 44px; width: 224px; height: 224px; }
+  .bo-tt-disc::before { width: 178px; height: 178px; }
+  .bo-tt-disc-inner   { width: 76px; height: 76px; }
+}
+
 /* ── ORIGINOS NEURAL ORBIT ── */
 .bo-next-grid {
   display: grid;
@@ -505,28 +680,53 @@
 
       
       <!-- ── CAMPUS MUSIC FEATURE ── -->
-      <section class="bo-feature-section">
+      <section class="bo-cm-section">
         <div class="container">
           <div class="spacing-7em"></div>
-          <div class="bo-feature-label">01 &mdash; Active Product</div>
-          <div class="spacing-4-5em"></div>
-          <div class="bo-feature-grid">
-            <div class="bo-feature-content">
-              <p class="bo-feature-headline">Campus Music is live.</p>
-              <div class="spacing-2-5em"></div>
-              <p class="bo-feature-body">The music platform built for campus culture. Student creators share, stream, and grow their audience in a space designed around them &mdash; not repurposed from somewhere else.</p>
-              <div class="spacing-3-5em"></div>
-              <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-feature-cta">
+          <div class="bo-cm-grid">
+
+            <!-- ── LEFT: TEXT ── -->
+            <div class="bo-cm-text">
+              <div class="bo-cm-label">01 &mdash; Active Product</div>
+              <h2 class="bo-cm-headline">Campus Music<br>is live.</h2>
+              <p class="bo-cm-body">The music platform built for campus culture. Student creators share, stream, and grow their audience in a space designed around them &mdash; not repurposed from somewhere else.</p>
+              <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-cm-cta">
                 Visit Campus Music &rarr;
               </a>
             </div>
-            <div class="bo-feature-img-wrap">
-              <img src="images/campus-music.png" alt="Campus Music &mdash; the music platform for campus culture" class="bo-feature-img">
+
+            <!-- ── RIGHT: TURNTABLE ── -->
+            <div class="bo-cm-visual">
+              <div class="bo-turntable">
+
+                <!-- Layer 1: Rainbow C-ring (static) -->
+                <img class="bo-tt-ring" src="images/cm-ring.png" alt="">
+
+                <!-- Layer 2: Vinyl disc — spins on hover -->
+                <div class="bo-tt-disc">
+                  <div class="bo-tt-groove-1"></div>
+                  <div class="bo-tt-groove-2"></div>
+                  <div class="bo-tt-disc-inner">
+                    <!-- play triangle -->
+                    <div class="bo-tt-play">
+                      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                        <polygon points="8,4 32,18 8,32" fill="white" opacity="0.9"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Layer 3: Tonearm (static, on top) -->
+                <img class="bo-tt-arm" src="images/cm-arm.png" alt="">
+
+              </div>
             </div>
+
           </div>
           <div class="spacing-7em"></div>
         </div>
       </section>
+
 
       <!-- ── STATS STRIP ── -->
       <div class="bo-stats-strip">
