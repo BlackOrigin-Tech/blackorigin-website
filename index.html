@@ -65,14 +65,42 @@
   border-radius: 16px;
 }
 .bo-strip-cm {
-  background: #f2ede6;
+  background: radial-gradient(ellipse at 20% 90%, #e8e0d4 0%, #f2ede6 55%, #f6f2ed 100%);
   color: #111;
-  transition: background 0.3s ease;
+  transition: transform 0.32s ease, box-shadow 0.32s ease, background 0.32s ease;
 }
-.bo-strip-cm:hover { background: #ebe5dd; }
+.bo-strip-cm:hover {
+  background: radial-gradient(ellipse at 20% 90%, #e1d9cc 0%, #ebe4dc 55%, #eee9e3 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 28px 72px rgba(0,0,0,0.11);
+}
+.bo-strip-cm::before {
+  content: '';
+  position: absolute;
+  bottom: -45%;
+  left: -18%;
+  width: 85%;
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(circle at center, transparent 28%, rgba(0,0,0,0.045) 28.5%, transparent 29.5%),
+    radial-gradient(circle at center, transparent 43%, rgba(0,0,0,0.032) 43.5%, transparent 44.5%),
+    radial-gradient(circle at center, transparent 58%, rgba(0,0,0,0.022) 58.5%, transparent 59.5%),
+    radial-gradient(circle at center, transparent 73%, rgba(0,0,0,0.014) 73.5%, transparent 74.5%),
+    radial-gradient(circle at center, transparent 88%, rgba(0,0,0,0.009) 88.5%, transparent 89.5%);
+  pointer-events: none;
+}
 .bo-strip-os {
-  background: #0c0c0c;
+  background: radial-gradient(ellipse at 80% 15%, #1c1c1c 0%, #0c0c0c 55%, #060606 100%);
   color: #fff;
+}
+.bo-strip-os::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 26px 26px;
+  border-radius: inherit;
+  pointer-events: none;
 }
 .bo-strip-top {
   display: flex;
