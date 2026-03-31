@@ -659,55 +659,32 @@
                   </filter>
                 </defs>
 
-                <!-- slow-drift wrapper -->
+                <!-- slow-drift wrapper — makes whole system gently rotate -->
                 <g class="bo-orb-system">
 
-                  <!-- ── SUBSYSTEM NODES (static, outer layer = user space) ── -->
-                  <!-- Each dot is a named OS subsystem -->
+                  <!-- ── BACKGROUND CONSTELLATION NODES ── -->
+                  <circle cx="62"  cy="108" r="1.2" fill="white" opacity="0.18"/>
+                  <circle cx="438" cy="92"  r="0.9" fill="white" opacity="0.14"/>
+                  <circle cx="74"  cy="385" r="1.0" fill="white" opacity="0.16"/>
+                  <circle cx="443" cy="398" r="1.3" fill="white" opacity="0.12"/>
+                  <circle cx="48"  cy="248" r="0.8" fill="white" opacity="0.10"/>
+                  <circle cx="462" cy="260" r="1.0" fill="white" opacity="0.13"/>
+                  <circle cx="172" cy="58"  r="0.9" fill="white" opacity="0.15"/>
+                  <circle cx="336" cy="52"  r="1.1" fill="white" opacity="0.11"/>
+                  <circle cx="118" cy="452" r="0.8" fill="white" opacity="0.14"/>
+                  <circle cx="388" cy="446" r="1.2" fill="white" opacity="0.10"/>
+                  <circle cx="250" cy="38"  r="0.9" fill="white" opacity="0.12"/>
+                  <circle cx="254" cy="464" r="1.0" fill="white" opacity="0.09"/>
 
-                  <circle cx="62"  cy="108" r="1.4" fill="white" opacity="0.22"/>
-                  <text x="70"  y="105" fill="rgba(255,255,255,0.28)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">memory</text>
-
-                  <circle cx="438" cy="92"  r="1.0" fill="white" opacity="0.18"/>
-                  <text x="418" y="89" fill="rgba(255,255,255,0.22)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">network</text>
-
-                  <circle cx="74"  cy="385" r="1.2" fill="white" opacity="0.20"/>
-                  <text x="82"  y="382" fill="rgba(255,255,255,0.25)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">storage</text>
-
-                  <circle cx="443" cy="398" r="1.3" fill="white" opacity="0.18"/>
-                  <text x="420" y="395" fill="rgba(255,255,255,0.22)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">api</text>
-
-                  <circle cx="48"  cy="250" r="0.9" fill="white" opacity="0.14"/>
-                  <text x="6"   y="247" fill="rgba(255,255,255,0.20)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">scheduler</text>
-
-                  <circle cx="462" cy="260" r="1.0" fill="white" opacity="0.16"/>
-                  <text x="448" y="270" fill="rgba(255,255,255,0.20)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">ui</text>
-
-                  <circle cx="172" cy="58"  r="1.0" fill="white" opacity="0.18"/>
-                  <text x="148" y="52" fill="rgba(255,255,255,0.22)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">auth</text>
-
-                  <circle cx="336" cy="52"  r="1.1" fill="white" opacity="0.16"/>
-                  <text x="316" y="46" fill="rgba(255,255,255,0.20)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">processes</text>
-
-                  <circle cx="118" cy="452" r="1.0" fill="white" opacity="0.18"/>
-                  <text x="88"  y="462" fill="rgba(255,255,255,0.22)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">filesystem</text>
-
-                  <circle cx="388" cy="446" r="1.2" fill="white" opacity="0.16"/>
-                  <text x="358" y="456" fill="rgba(255,255,255,0.20)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">sync</text>
-
-                  <circle cx="250" cy="38"  r="1.0" fill="white" opacity="0.16"/>
-                  <text x="224" y="32" fill="rgba(255,255,255,0.20)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">ai engine</text>
-
-                  <circle cx="254" cy="464" r="1.1" fill="white" opacity="0.14"/>
-                  <text x="232" y="476" fill="rgba(255,255,255,0.18)" font-family="Courier New, monospace" font-size="6.5" letter-spacing="0.05em">security</text>
-
-                  <!-- ── IPC LINES (inter-process communication) ── -->
+                  <!-- ── NEURAL CONNECTING LINES (static, organic) ── -->
+                  <!-- center to scattered nodes -->
                   <line x1="250" y1="250" x2="62"  y2="108" stroke="rgba(255,255,255,0.04)" stroke-width="0.6"/>
                   <line x1="250" y1="250" x2="438" y2="92"  stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
                   <line x1="250" y1="250" x2="74"  y2="385" stroke="rgba(255,255,255,0.04)" stroke-width="0.6"/>
                   <line x1="250" y1="250" x2="443" y2="398" stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
                   <line x1="250" y1="250" x2="172" y2="58"  stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
                   <line x1="250" y1="250" x2="336" y2="52"  stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
+                  <!-- node-to-node connections -->
                   <line x1="62"  y1="108" x2="172" y2="58"  stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
                   <line x1="438" y1="92"  x2="336" y2="52"  stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
                   <line x1="74"  y1="385" x2="118" y2="452" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
@@ -715,51 +692,43 @@
                   <line x1="48"  y1="248" x2="62"  y2="108" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
                   <line x1="462" y1="260" x2="438" y2="92"  stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
 
-                  <!-- ── PRIVILEGE RING LABELS (static, outside rotating groups) ── -->
-                  <!-- These label each orbital ring by its OS privilege level -->
-                  <text x="319" y="244" fill="rgba(255,255,255,0.18)" font-family="Courier New, monospace" font-size="6" letter-spacing="0.08em">ring 0</text>
-                  <text x="357" y="244" fill="rgba(255,255,255,0.13)" font-family="Courier New, monospace" font-size="6" letter-spacing="0.08em">ring 1</text>
-                  <text x="401" y="244" fill="rgba(255,255,255,0.10)" font-family="Courier New, monospace" font-size="6" letter-spacing="0.08em">ring 2</text>
-                  <text x="447" y="244" fill="rgba(255,255,255,0.07)" font-family="Courier New, monospace" font-size="6" letter-spacing="0.08em">ring 3</text>
-
-                  <!-- ── ORBIT RING 4 (outermost — ring 3, user space, 52s) ── -->
+                  <!-- ── ORBIT 4 (outermost, 52s) ── -->
                   <g class="bo-orb-r4">
                     <ellipse cx="250" cy="250" rx="195" ry="66" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="0.7"/>
                     <circle cx="445" cy="250" r="2.5" fill="white" opacity="0.55" class="bo-orb-node" filter="url(#bo-glow-n)"/>
                     <circle cx="55"  cy="250" r="1.5" fill="white" opacity="0.3"  class="bo-orb-node"/>
                   </g>
 
-                  <!-- ── ORBIT RING 3 (ring 2, application layer, 38s) ── -->
+                  <!-- ── ORBIT 3 (38s) ── -->
                   <g class="bo-orb-r3">
                     <ellipse cx="250" cy="250" rx="148" ry="52" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
                     <circle cx="398" cy="250" r="3"   fill="white" opacity="0.65" class="bo-orb-node" filter="url(#bo-glow-n)"/>
                     <circle cx="102" cy="250" r="1.8" fill="white" opacity="0.35" class="bo-orb-node"/>
                   </g>
 
-                  <!-- ── ORBIT RING 2 (ring 1, system services, 26s) ── -->
+                  <!-- ── ORBIT 2 (26s) ── -->
                   <g class="bo-orb-r2">
                     <ellipse cx="250" cy="250" rx="104" ry="38" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
                     <circle cx="354" cy="250" r="2.8" fill="white" opacity="0.72" class="bo-orb-node" filter="url(#bo-glow-n)"/>
                     <circle cx="146" cy="250" r="1.8" fill="white" opacity="0.38" class="bo-orb-node"/>
                   </g>
 
-                  <!-- ── ORBIT RING 1 (innermost — ring 0, kernel space, 16s) ── -->
+                  <!-- ── ORBIT 1 (innermost, 16s) ── -->
                   <g class="bo-orb-r1">
-                    <ellipse cx="250" cy="250" rx="66" ry="26" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
-                    <circle cx="316" cy="250" r="2.5" fill="white" opacity="0.82" class="bo-orb-node" filter="url(#bo-glow-n)"/>
+                    <ellipse cx="250" cy="250" rx="66" ry="26" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+                    <circle cx="316" cy="250" r="2.5" fill="white" opacity="0.8" class="bo-orb-node" filter="url(#bo-glow-n)"/>
                   </g>
 
-                  <!-- ── CENTER HALO RINGS ── -->
+                  <!-- ── CENTER CONCENTRIC HALO RINGS ── -->
                   <circle cx="250" cy="250" r="20"  fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.6"/>
                   <circle cx="250" cy="250" r="36"  fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
 
-                  <!-- ── SONAR PING (system heartbeat) ── -->
+                  <!-- ── CENTER SONAR PING (expanding rings) ── -->
                   <circle cx="250" cy="250" r="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" class="bo-orb-ping"/>
                   <circle cx="250" cy="250" r="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" class="bo-orb-ping-2"/>
 
-                  <!-- ── KERNEL NODE (center) ── -->
+                  <!-- ── CENTER NODE ── -->
                   <circle cx="250" cy="250" r="4.5" fill="white" class="bo-orb-center" filter="url(#bo-glow-c)"/>
-                  <text x="250" y="264" fill="rgba(255,255,255,0.3)" font-family="Courier New, monospace" font-size="6" text-anchor="middle" letter-spacing="0.12em">kernel</text>
 
                 </g>
               </svg>
