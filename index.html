@@ -38,49 +38,76 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
-/* ── PRODUCTS LIST ── */
-.bo-products-list {
-  border-top: 1px solid #e8e8e8;
-}
-.bo-product-row {
+/* ── PRODUCTS STRIPS ── */
+.bo-strips {
   display: flex;
-  align-items: center;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid #e8e8e8;
-  gap: 2rem;
+  flex-direction: column;
+}
+.bo-strip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  padding: 3rem 5vw;
   text-decoration: none;
-  color: inherit;
+  position: relative;
+  overflow: hidden;
 }
-.bo-product-num {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: #bbb;
-  min-width: 2rem;
-  font-variant-numeric: tabular-nums;
-}
-.bo-product-title {
-  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+.bo-strip-cm {
+  background: #f2ede6;
   color: #111;
-  flex: 1;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  transition: background 0.3s ease;
 }
-a.bo-product-row .bo-product-title {
-  transition: color 0.18s;
+.bo-strip-cm:hover { background: #ede7df; }
+.bo-strip-os {
+  background: #0c0c0c;
+  color: #fff;
 }
-a.bo-product-row:hover .bo-product-title {
-  color: #555;
+.bo-strip-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-.bo-product-status {
+.bo-strip-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.38;
+  font-family: Inter, sans-serif;
+}
+.bo-strip-tag {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #999;
-  white-space: nowrap;
+  font-family: Inter, sans-serif;
 }
+.bo-strip-cm .bo-strip-tag { color: rgba(0,0,0,0.45); }
+.bo-strip-os .bo-strip-tag { color: rgba(255,255,255,0.38); }
+.bo-strip-name {
+  font-size: clamp(3.8rem, 9vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  margin: 0;
+  align-self: flex-end;
+}
+.bo-strip-cm .bo-strip-name { color: #111; }
+.bo-strip-os .bo-strip-name { color: #fff; }
+.bo-strip-arrow {
+  position: absolute;
+  bottom: 3rem;
+  right: 5vw;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.bo-strip-cm:hover .bo-strip-arrow { opacity: 0.4; transform: translateX(0); }
+/* Live dot */
 .bo-live-dot {
   display: inline-block;
   width: 6px;
@@ -95,6 +122,10 @@ a.bo-product-row:hover .bo-product-title {
   0%   { box-shadow: 0 0 0 0   rgba(74,222,128,0.55); }
   60%  { box-shadow: 0 0 0 7px rgba(74,222,128,0); }
   100% { box-shadow: 0 0 0 0   rgba(74,222,128,0); }
+}
+@media (max-width: 600px) {
+  .bo-strip { min-height: 240px; padding: 2.5rem 6vw; }
+  .bo-strip-name { font-size: clamp(2.8rem, 13vw, 5rem); }
 }
 /* ── TICKER ── */
 .bo-ticker-wrap {
@@ -416,27 +447,29 @@ a.bo-product-row:hover .bo-product-title {
       </section>
 
       
-      <!-- ── PRODUCTS LIST ── -->
-      <section>
-        <div class="container">
-          <div class="spacing-4-5em"></div>
-          <div class="text-style-paragraph text-color-gray-500">What we&#8217;re building</div>
-          <div class="spacing-2-5em"></div>
-          <div class="bo-products-list">
-            <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-product-row">
-              <span class="bo-product-num">01</span>
-              <span class="bo-product-title">Campus Music</span>
-              <span class="bo-product-status"><span class="bo-live-dot"></span>Live</span>
-            </a>
-            <div class="bo-product-row">
-              <span class="bo-product-num">02</span>
-              <span class="bo-product-title">OriginOS</span>
-              <span class="bo-product-status">In Development</span>
-            </div>
+      <!-- ── PRODUCTS STRIPS ── -->
+      <div class="bo-strips">
+
+        <!-- Campus Music -->
+        <a href="https://www.campusmusic.app/" target="_blank" rel="noopener noreferrer" class="bo-strip bo-strip-cm">
+          <div class="bo-strip-top">
+            <span class="bo-strip-num">01</span>
+            <span class="bo-strip-tag"><span class="bo-live-dot"></span>Live now</span>
           </div>
-          <div class="spacing-4-5em"></div>
+          <p class="bo-strip-name">Campus Music</p>
+          <span class="bo-strip-arrow">&#8599;</span>
+        </a>
+
+        <!-- OriginOS -->
+        <div class="bo-strip bo-strip-os">
+          <div class="bo-strip-top">
+            <span class="bo-strip-num">02</span>
+            <span class="bo-strip-tag">In Development</span>
+          </div>
+          <p class="bo-strip-name">OriginOS</p>
         </div>
-      </section>
+
+      </div>
 
       <!-- ── STATS STRIP ── -->
       <div class="bo-stats-strip">
