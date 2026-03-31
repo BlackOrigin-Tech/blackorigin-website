@@ -168,13 +168,15 @@
   z-index: 0;
 }
 .bo-os-single-wrap {
-  max-width: 300px;
-}
-.bo-os-single-wrap .bo-strip {
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
 }
 .bo-os-single-wrap .bo-strip-name {
-  font-size: clamp(1.4rem, 2.8vw, 3.4rem);
+  font-size: clamp(1.4rem, 2.5vw, 3.2rem);
+}
+@media (max-width: 640px) {
+  .bo-os-single-wrap { grid-template-columns: 1fr 1fr; }
 }
 .bo-strip-top,
 .bo-strip-tagline,
