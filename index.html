@@ -160,47 +160,6 @@
   100% { transform: translateX(-50%); }
 }
 
-/* ── STATS STRIP ── */
-.bo-stats-strip {
-  background: #111;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  padding: 3.5em 0;
-}
-.bo-stats-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2em;
-}
-.bo-stat { text-align: center; flex: 1; }
-.bo-stat-number {
-  font-family: Inter, sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 300;
-  color: #fff;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 0.4em;
-}
-.bo-stat-label {
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  font-family: Inter, sans-serif;
-}
-.bo-stat-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(255,255,255,0.1);
-  flex-shrink: 0;
-}
-@media (max-width: 600px) {
-  .bo-stats-grid { flex-wrap: wrap; }
-  .bo-stat-divider { display: none; }
-  .bo-stat { flex: 1 0 40%; }
-}
 
 
 </style>
@@ -472,32 +431,6 @@
 
       </div>
 
-      <!-- ── STATS STRIP ── -->
-      <div class="bo-stats-strip">
-        <div class="container">
-          <div class="bo-stats-grid">
-            <div class="bo-stat">
-              <div class="bo-stat-number">01</div>
-              <div class="bo-stat-label">Active product</div>
-            </div>
-            <div class="bo-stat-divider"></div>
-            <div class="bo-stat">
-              <div class="bo-stat-number">01</div>
-              <div class="bo-stat-label">In development</div>
-            </div>
-            <div class="bo-stat-divider"></div>
-            <div class="bo-stat">
-              <div class="bo-stat-number">2024</div>
-              <div class="bo-stat-label">Founded</div>
-            </div>
-            <div class="bo-stat-divider"></div>
-            <div class="bo-stat">
-              <div class="bo-stat-number">&infin;</div>
-              <div class="bo-stat-label">Long-term vision</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- ── HOW WE BUILD SECTION ── -->
       <section>
