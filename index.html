@@ -38,6 +38,79 @@
 }
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
+/* ── ORIGINOS NEURAL ORBIT ── */
+.bo-next-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6em;
+  align-items: center;
+  min-height: 520px;
+}
+.bo-next-text { display: flex; flex-direction: column; justify-content: center; }
+.bo-next-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.bo-orb-svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  overflow: visible;
+}
+/* Orbital ring animations */
+.bo-orb-r1 {
+  transform-origin: 250px 250px;
+  animation: bo-rs1 16s linear infinite;
+}
+.bo-orb-r2 {
+  transform-origin: 250px 250px;
+  animation: bo-rs2 26s linear infinite;
+}
+.bo-orb-r3 {
+  transform-origin: 250px 250px;
+  animation: bo-rs3 38s linear infinite;
+}
+.bo-orb-r4 {
+  transform-origin: 250px 250px;
+  animation: bo-rs4 52s linear infinite;
+}
+/* Slow drift of whole system */
+.bo-orb-system {
+  transform-origin: 250px 250px;
+  animation: bo-drift 90s linear infinite;
+}
+@keyframes bo-rs1 { from { transform: rotate(-20deg); } to { transform: rotate(340deg); } }
+@keyframes bo-rs2 { from { transform: rotate(42deg); }  to { transform: rotate(402deg); } }
+@keyframes bo-rs3 { from { transform: rotate(-70deg); } to { transform: rotate(290deg); } }
+@keyframes bo-rs4 { from { transform: rotate(115deg); } to { transform: rotate(475deg); } }
+@keyframes bo-drift { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* Center node pulse */
+.bo-orb-center { animation: bo-cpulse 4s ease-in-out infinite; }
+.bo-orb-ping   { animation: bo-ping 4s ease-out infinite; }
+.bo-orb-ping-2 { animation: bo-ping 4s ease-out 1.8s infinite; }
+@keyframes bo-cpulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+@keyframes bo-ping {
+  0%   { r: 8;  opacity: 0.25; }
+  100% { r: 55; opacity: 0; }
+}
+/* Individual node flicker */
+.bo-orb-node { animation: bo-nflicker 6s ease-in-out infinite; }
+.bo-orb-node:nth-child(2n)  { animation-delay: -2.1s; }
+.bo-orb-node:nth-child(3n)  { animation-delay: -4.3s; }
+@keyframes bo-nflicker {
+  0%, 85%, 100% { opacity: 1; }
+  90%            { opacity: 0.35; }
+}
+@media (max-width: 768px) {
+  .bo-next-grid { grid-template-columns: 1fr; gap: 3em; }
+  .bo-orb-svg   { max-width: 320px; }
+}
+
 /* ── TICKER ── */
 .bo-ticker-wrap {
   background: #0a0a0a;
@@ -559,13 +632,109 @@
       <section class="bo-next-section">
         <div class="container">
           <div class="spacing-7em"></div>
-          <div class="bo-next-eyebrow">02 &mdash; In Development</div>
-          <div class="spacing-3-5em"></div>
-          <h2 class="bo-next-name">OriginOS</h2>
-          <div class="spacing-2-5em"></div>
-          <p class="bo-next-desc">A personal AI system built to help you think, organize, and move with clarity. Our next product is in active development.</p>
-          <div class="spacing-3-5em"></div>
-          <span class="bo-next-badge">Coming Soon</span>
+          <div class="bo-next-grid">
+
+            <!-- ── LEFT: TEXT ── -->
+            <div class="bo-next-text">
+              <div class="bo-next-eyebrow">02 &mdash; In Development</div>
+              <div class="spacing-3-5em"></div>
+              <h2 class="bo-next-name">OriginOS</h2>
+              <div class="spacing-2-5em"></div>
+              <p class="bo-next-desc">A personal AI system built to help you think, organize, and move with clarity. Designed around how people actually work &mdash; not how software assumes they do.</p>
+              <div class="spacing-3-5em"></div>
+              <span class="bo-next-badge">Coming Soon</span>
+            </div>
+
+            <!-- ── RIGHT: NEURAL ORBIT VISUALIZATION ── -->
+            <div class="bo-next-visual">
+              <svg class="bo-orb-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="bo-glow-c" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <filter id="bo-glow-n" x="-120%" y="-120%" width="340%" height="340%">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <!-- slow-drift wrapper — makes whole system gently rotate -->
+                <g class="bo-orb-system">
+
+                  <!-- ── BACKGROUND CONSTELLATION NODES ── -->
+                  <circle cx="62"  cy="108" r="1.2" fill="white" opacity="0.18"/>
+                  <circle cx="438" cy="92"  r="0.9" fill="white" opacity="0.14"/>
+                  <circle cx="74"  cy="385" r="1.0" fill="white" opacity="0.16"/>
+                  <circle cx="443" cy="398" r="1.3" fill="white" opacity="0.12"/>
+                  <circle cx="48"  cy="248" r="0.8" fill="white" opacity="0.10"/>
+                  <circle cx="462" cy="260" r="1.0" fill="white" opacity="0.13"/>
+                  <circle cx="172" cy="58"  r="0.9" fill="white" opacity="0.15"/>
+                  <circle cx="336" cy="52"  r="1.1" fill="white" opacity="0.11"/>
+                  <circle cx="118" cy="452" r="0.8" fill="white" opacity="0.14"/>
+                  <circle cx="388" cy="446" r="1.2" fill="white" opacity="0.10"/>
+                  <circle cx="250" cy="38"  r="0.9" fill="white" opacity="0.12"/>
+                  <circle cx="254" cy="464" r="1.0" fill="white" opacity="0.09"/>
+
+                  <!-- ── NEURAL CONNECTING LINES (static, organic) ── -->
+                  <!-- center to scattered nodes -->
+                  <line x1="250" y1="250" x2="62"  y2="108" stroke="rgba(255,255,255,0.04)" stroke-width="0.6"/>
+                  <line x1="250" y1="250" x2="438" y2="92"  stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
+                  <line x1="250" y1="250" x2="74"  y2="385" stroke="rgba(255,255,255,0.04)" stroke-width="0.6"/>
+                  <line x1="250" y1="250" x2="443" y2="398" stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
+                  <line x1="250" y1="250" x2="172" y2="58"  stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
+                  <line x1="250" y1="250" x2="336" y2="52"  stroke="rgba(255,255,255,0.03)" stroke-width="0.6"/>
+                  <!-- node-to-node connections -->
+                  <line x1="62"  y1="108" x2="172" y2="58"  stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+                  <line x1="438" y1="92"  x2="336" y2="52"  stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                  <line x1="74"  y1="385" x2="118" y2="452" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+                  <line x1="443" y1="398" x2="388" y2="446" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                  <line x1="48"  y1="248" x2="62"  y2="108" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+                  <line x1="462" y1="260" x2="438" y2="92"  stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+
+                  <!-- ── ORBIT 4 (outermost, 52s) ── -->
+                  <g class="bo-orb-r4">
+                    <ellipse cx="250" cy="250" rx="195" ry="66" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="0.7"/>
+                    <circle cx="445" cy="250" r="2.5" fill="white" opacity="0.55" class="bo-orb-node" filter="url(#bo-glow-n)"/>
+                    <circle cx="55"  cy="250" r="1.5" fill="white" opacity="0.3"  class="bo-orb-node"/>
+                  </g>
+
+                  <!-- ── ORBIT 3 (38s) ── -->
+                  <g class="bo-orb-r3">
+                    <ellipse cx="250" cy="250" rx="148" ry="52" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
+                    <circle cx="398" cy="250" r="3"   fill="white" opacity="0.65" class="bo-orb-node" filter="url(#bo-glow-n)"/>
+                    <circle cx="102" cy="250" r="1.8" fill="white" opacity="0.35" class="bo-orb-node"/>
+                  </g>
+
+                  <!-- ── ORBIT 2 (26s) ── -->
+                  <g class="bo-orb-r2">
+                    <ellipse cx="250" cy="250" rx="104" ry="38" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="0.8"/>
+                    <circle cx="354" cy="250" r="2.8" fill="white" opacity="0.72" class="bo-orb-node" filter="url(#bo-glow-n)"/>
+                    <circle cx="146" cy="250" r="1.8" fill="white" opacity="0.38" class="bo-orb-node"/>
+                  </g>
+
+                  <!-- ── ORBIT 1 (innermost, 16s) ── -->
+                  <g class="bo-orb-r1">
+                    <ellipse cx="250" cy="250" rx="66" ry="26" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+                    <circle cx="316" cy="250" r="2.5" fill="white" opacity="0.8" class="bo-orb-node" filter="url(#bo-glow-n)"/>
+                  </g>
+
+                  <!-- ── CENTER CONCENTRIC HALO RINGS ── -->
+                  <circle cx="250" cy="250" r="20"  fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.6"/>
+                  <circle cx="250" cy="250" r="36"  fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
+
+                  <!-- ── CENTER SONAR PING (expanding rings) ── -->
+                  <circle cx="250" cy="250" r="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" class="bo-orb-ping"/>
+                  <circle cx="250" cy="250" r="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" class="bo-orb-ping-2"/>
+
+                  <!-- ── CENTER NODE ── -->
+                  <circle cx="250" cy="250" r="4.5" fill="white" class="bo-orb-center" filter="url(#bo-glow-c)"/>
+
+                </g>
+              </svg>
+            </div>
+
+          </div>
           <div class="spacing-7em"></div>
         </div>
       </section>
