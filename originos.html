@@ -153,6 +153,55 @@
   opacity: 0;
   animation-delay: 7s;
 }
+/* ── Scan line ── */
+.bo-void-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  top: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: bo-scan-sweep 2.8s linear 0.1s forwards;
+  opacity: 0;
+}
+@keyframes bo-scan-sweep {
+  0%   { top: 0%; opacity: 0; }
+  4%   { opacity: 1; }
+  96%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+/* ── Corner brackets ── */
+.bo-void-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 3;
+  opacity: 0;
+  animation: bo-fade-in 0.6s ease forwards;
+}
+.bo-void-corner-tl { top: 1.2rem; left: 1.2rem; border-top: 1px solid rgba(255,255,255,0.18); border-left: 1px solid rgba(255,255,255,0.18); animation-delay: 0.4s; }
+.bo-void-corner-tr { top: 1.2rem; right: 1.2rem; border-top: 1px solid rgba(255,255,255,0.18); border-right: 1px solid rgba(255,255,255,0.18); animation-delay: 0.6s; }
+.bo-void-corner-bl { bottom: 1.2rem; left: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.18); border-left: 1px solid rgba(255,255,255,0.18); animation-delay: 0.8s; }
+.bo-void-corner-br { bottom: 1.2rem; right: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.18); border-right: 1px solid rgba(255,255,255,0.18); animation-delay: 1.0s; }
+/* ── Breathing center glow ── */
+.bo-void-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255,255,255,0.028) 0%, transparent 70%);
+  animation: bo-breathe 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes bo-breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 0.5; }
+  50%       { transform: translate(-50%, -50%) scale(1.6); opacity: 1;   }
+}
 @keyframes bo-typing {
   from { width: 0 }
   to   { width: 100% }
@@ -269,6 +318,12 @@
         <div class="aspect-ratio-16-9 position-relative overflow-hidden border-rounded">
           <div class="bo-void-panel">
             <div class="bo-void-grid"></div>
+            <div class="bo-void-glow"></div>
+            <div class="bo-void-scanline"></div>
+            <div class="bo-void-corner bo-void-corner-tl"></div>
+            <div class="bo-void-corner bo-void-corner-tr"></div>
+            <div class="bo-void-corner bo-void-corner-bl"></div>
+            <div class="bo-void-corner bo-void-corner-br"></div>
             <div class="bo-void-meta">
               <div class="bo-void-meta-row"><span class="bo-void-dot-sm"></span><span>Entity: BlackOrigin Holdings</span></div>
               <div class="bo-void-meta-row"><span class="bo-void-dot-sm"></span><span>Product: OriginOS</span></div>
