@@ -48,6 +48,140 @@
   grid-template-columns: 1fr 1fr;
   gap: 6em;
   align-items: center;
+  min-height: 440px;
+}
+.bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
+.bo-cm-label {
+  font-family: var(--font-primary, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.bo-cm-headline {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0.55em 0 0.6em;
+}
+.bo-cm-body {
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgba(255,255,255,0.6);
+  max-width: 38ch;
+}
+.bo-cm-cta {
+  display: inline-block;
+  margin-top: 2em;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.25s;
+}
+.bo-cm-cta:hover { color: #fff; }
+
+/* ── Image-stack turntable ── */
+.bo-cm-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Container matches the 2400×1500 canvas aspect ratio */
+.bo-turntable {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 2400 / 1500;   /* = 8/5 — matches all 4 PNG canvases */
+  cursor: pointer;
+  filter: grayscale(1) brightness(0.85);
+  transition: filter 0.65s ease;
+}
+.bo-turntable:hover {
+  filter: grayscale(0) brightness(1);
+}
+/* Every layer is stacked exactly on top of each other */
+.bo-tt-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: block;
+  mix-blend-mode: screen;
+}
+/* Spinning group — wraps the vinyl layers that rotate */
+.bo-tt-spin {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* Disc center in the 2400×1500 canvas is approx 46% from left, 50% from top */
+  transform-origin: 46% 50%;
+}
+/* Hover triggers spin */
+.bo-turntable:hover .bo-tt-spin {
+  animation: bo-vinyl-spin 4s linear infinite;
+}
+@keyframes bo-vinyl-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .bo-cm-grid { grid-template-columns: 1fr; gap: 3em; }
+  .bo-turntable { max-width: 380px; }
+}
+<!DOCTYPE html>
+<html data-wf-page="69a5ea5b87dc085b3587a786" data-wf-site="69a5ea5987dc085b3587a72a" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BlackOrigin — Building Technology That Lasts</title>
+  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." name="description">
+  <meta content="BlackOrigin — Building Technology That Lasts" property="og:title">
+  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="og:description">
+  <meta content="BlackOrigin — Building Technology That Lasts" property="twitter:title">
+  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/blackorigin.webflow.css" rel="stylesheet" type="text/css">
+  <style>
+/* Webflow IX3 preloader override — static export fix */
+[homepage-load], [innerpage-load],
+.navbar, .footer {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+/* Mobile menu: force out of document flow so it can't create a layout gap */
+.mobile-menu {
+  position: fixed !important;
+}
+/* Ensure link text is readable when mobile menu opens */
+.mobile-menu .link-block-large {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+/* Fixed nav stays hidden on homepage until scroll reveals it */
+.primary-navbar-fixed-wrap {
+  display: none !important;
+}
+.preloader { display: none !important; }
+.template-popup { display: none !important; }
+/* ── CAMPUS MUSIC TURNTABLE SECTION ── */
+.bo-cm-section {
+  background: #0a0a0a;
+  color: #fff;
+}
+.bo-cm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6em;
+  align-items: center;
   min-height: 520px;
 }
 .bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
@@ -651,19 +785,17 @@
             <div class="bo-cm-visual">
               <div class="bo-turntable">
 
-                <!-- Layer 1: Rainbow C-ring (static) -->
-                <img class="bo-tt-ring" src="images/cm-ring.png" alt="">
+                <!-- Layer 1: C-ring rainbow arc (static, sits behind everything) -->
+                <img class="bo-tt-layer" src="images/cm-l1-ring.png" alt="Campus Music C-ring" style="z-index:1;">
 
-                <!-- Layer 2: Vinyl disc — spins on hover -->
-                <div class="bo-tt-disc">
-                  <!-- Large play triangle matching the Campus Music logo -->
-                  <svg class="bo-tt-tri" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="12,5 95,50 12,95" fill="white"/>
-                  </svg>
+                <!-- Spinning group: vinyl ring + play button rotate together on hover -->
+                <div class="bo-tt-spin" style="z-index:2;">
+                  <img class="bo-tt-layer" src="images/cm-l2-vinyl.png" alt="" style="position:absolute;top:0;left:0;">
+                  <img class="bo-tt-layer" src="images/cm-l3-cd.png"    alt="" style="position:absolute;top:0;left:0;">
                 </div>
 
-                <!-- Layer 3: Tonearm (static, on top) -->
-                <img class="bo-tt-arm" src="images/cm-arm.png" alt="">
+                <!-- Layer 4: Tonearm — static, always on top -->
+                <img class="bo-tt-layer" src="images/cm-l4-arm.png" alt="Tonearm" style="z-index:3;">
 
               </div>
             </div>
