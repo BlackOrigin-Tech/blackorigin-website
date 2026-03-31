@@ -39,6 +39,159 @@
 .preloader { display: none !important; }
 .template-popup { display: none !important; }
 /* ── CAMPUS MUSIC TURNTABLE SECTION ── */
+.bo-cm-section { background: #0a0a0a; color: #fff; }
+.bo-cm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4em;
+  align-items: center;
+  min-height: 420px;
+}
+.bo-cm-text { display: flex; flex-direction: column; justify-content: center; }
+.bo-cm-label {
+  font-family: var(--font-primary, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.bo-cm-headline {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0.55em 0 0.6em;
+}
+.bo-cm-body {
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgba(255,255,255,0.6);
+  max-width: 38ch;
+}
+.bo-cm-cta {
+  display: inline-block;
+  margin-top: 2em;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.25s;
+}
+.bo-cm-cta:hover { color: #fff; }
+
+/* ── Turntable: square container, crops into the logo area of the 2400x1500 canvases ── */
+.bo-cm-visual { display: flex; justify-content: center; align-items: center; }
+
+.bo-turntable {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  overflow: hidden;          /* clips the oversized images to show only the logo */
+  cursor: pointer;
+  filter: grayscale(1) brightness(0.85);
+  transition: filter 0.65s ease;
+  flex-shrink: 0;
+}
+.bo-turntable:hover { filter: grayscale(0) brightness(1); }
+
+/*
+ * All 4 images are 2400×1500.  The logo lives in approximately:
+ *   x: 672–1680  (center ~1176)
+ *   y: 105–1400  (center ~750)
+ * We scale so the logo height (≈1295px) = 320px  →  scale = 0.247
+ * Scaled full image: 593 × 370px
+ * Offsets so logo center (1176,750) maps to container center (160,160):
+ *   left = -(1176*0.247 - 160) = -(291-160) = -131px
+ *   top  = -(750*0.247  - 160) = -(185-160) = -25px
+ */
+.bo-tt-layer {
+  position: absolute;
+  width: 593px;
+  height: 370px;
+  top: -25px;
+  left: -131px;
+  mix-blend-mode: screen;   /* black bg → transparent; colours/white → visible */
+  display: block;
+  pointer-events: none;
+}
+
+/* Spinning group wraps the vinyl ring + play button layers */
+.bo-tt-spin {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  transform-origin: 50% 50%;  /* rotates around the container centre = disc centre */
+}
+/* Images inside the spin group use the same crop offset */
+.bo-tt-spin .bo-tt-inner {
+  position: absolute;
+  width: 593px;
+  height: 370px;
+  top: -25px;
+  left: -131px;
+  mix-blend-mode: screen;
+  display: block;
+  pointer-events: none;
+}
+
+/* Hover triggers spin */
+.bo-turntable:hover .bo-tt-spin {
+  animation: bo-vinyl-spin 4s linear infinite;
+}
+@keyframes bo-vinyl-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .bo-cm-grid { grid-template-columns: 1fr; gap: 3em; }
+  .bo-turntable { width: 260px; height: 260px; }
+  .bo-tt-layer  { width: 482px; height: 301px; top: -21px; left: -107px; }
+  .bo-tt-spin .bo-tt-inner { width: 482px; height: 301px; top: -21px; left: -107px; }
+}
+<!DOCTYPE html>
+<html data-wf-page="69a5ea5b87dc085b3587a786" data-wf-site="69a5ea5987dc085b3587a72a" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BlackOrigin — Building Technology That Lasts</title>
+  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." name="description">
+  <meta content="BlackOrigin — Building Technology That Lasts" property="og:title">
+  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="og:description">
+  <meta content="BlackOrigin — Building Technology That Lasts" property="twitter:title">
+  <meta content="BlackOrigin is a technology company that builds and scales one product at a time. Disciplined execution, long-term vision, and a commitment to creating enduring technology ecosystems." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/blackorigin.webflow.css" rel="stylesheet" type="text/css">
+  <style>
+/* Webflow IX3 preloader override — static export fix */
+[homepage-load], [innerpage-load],
+.navbar, .footer {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+/* Mobile menu: force out of document flow so it can't create a layout gap */
+.mobile-menu {
+  position: fixed !important;
+}
+/* Ensure link text is readable when mobile menu opens */
+.mobile-menu .link-block-large {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+/* Fixed nav stays hidden on homepage until scroll reveals it */
+.primary-navbar-fixed-wrap {
+  display: none !important;
+}
+.preloader { display: none !important; }
+.template-popup { display: none !important; }
+/* ── CAMPUS MUSIC TURNTABLE SECTION ── */
 .bo-cm-section {
   background: #0a0a0a;
   color: #fff;
@@ -783,18 +936,24 @@
 
             <!-- ── RIGHT: TURNTABLE ── -->
             <div class="bo-cm-visual">
+              <!--
+                All 4 images share the same 2400×1500 Photoshop canvas.
+                We crop into the logo area with overflow:hidden on .bo-turntable
+                and push each image by the same offset so they stay aligned.
+                mix-blend-mode:screen makes black bg disappear on the dark section.
+              -->
               <div class="bo-turntable">
 
-                <!-- Layer 1: C-ring rainbow arc (static, sits behind everything) -->
-                <img class="bo-tt-layer" src="images/cm-l1-ring.png" alt="Campus Music C-ring" style="z-index:1;">
+                <!-- L1: Rainbow C-arc (static, bottom) -->
+                <img class="bo-tt-layer" src="images/cm-l1-ring.png" alt="Campus Music ring" style="z-index:1;">
 
-                <!-- Spinning group: vinyl ring + play button rotate together on hover -->
+                <!-- L2+L3: Vinyl ring + play button — spin together on hover -->
                 <div class="bo-tt-spin" style="z-index:2;">
-                  <img class="bo-tt-layer" src="images/cm-l2-vinyl.png" alt="" style="position:absolute;top:0;left:0;">
-                  <img class="bo-tt-layer" src="images/cm-l3-cd.png"    alt="" style="position:absolute;top:0;left:0;">
+                  <img class="bo-tt-inner" src="images/cm-l2-vinyl.png" alt="">
+                  <img class="bo-tt-inner" src="images/cm-l3-cd.png"    alt="">
                 </div>
 
-                <!-- Layer 4: Tonearm — static, always on top -->
+                <!-- L4: Tonearm (static, top) -->
                 <img class="bo-tt-layer" src="images/cm-l4-arm.png" alt="Tonearm" style="z-index:3;">
 
               </div>
