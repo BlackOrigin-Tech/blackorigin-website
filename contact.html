@@ -468,5 +468,15 @@
   <script src="js/SplitText.min.js" type="text/javascript"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <script>setTimeout(function(){if(!document.documentElement.classList.contains('w-mod-ix3')){document.documentElement.classList.add('w-mod-ix3');}},2000);</script>
+  <script>
+  (function(){
+    var page = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.link-block').forEach(function(a){
+      var href = (a.getAttribute('href') || '').split('?')[0].split('#')[0];
+      var u = a.querySelector('.line-current-underline');
+      if(u) u.style.display = (href === page) ? 'block' : 'none';
+    });
+  })();
+  </script>
 </body>
 </html>

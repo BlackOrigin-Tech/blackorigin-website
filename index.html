@@ -662,5 +662,15 @@
       }, { passive: true });
     })();
   </script>
+  <script>
+  (function(){
+    var page = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.link-block').forEach(function(a){
+      var href = (a.getAttribute('href') || '').split('?')[0].split('#')[0];
+      var u = a.querySelector('.line-current-underline');
+      if(u) u.style.display = (href === page) ? 'block' : 'none';
+    });
+  })();
+  </script>
 </body>
 </html>
