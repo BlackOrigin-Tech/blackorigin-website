@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /template/
+
+# Allow AI search bots to index the site (good for AI Overviews / featured snippets)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://blackorigin.org/sitemap.xml
