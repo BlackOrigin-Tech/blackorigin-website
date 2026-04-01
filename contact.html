@@ -190,7 +190,12 @@
           </div>
           <div id="w-node-c986a0bd-2f5f-7f99-ab3d-580a317bd3ec-3587a78c" class="w-form">
             <div class="spacing-4-5em hidden-above-mobile-landscape"></div>
-            <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form" data-wf-page-id="69a5ea5b87dc085b3587a78c" data-wf-element-id="c986a0bd-2f5f-7f99-ab3d-580a317bd3ed">
+            <form id="email-form" name="email-form" data-name="Email Form" method="POST" action="https://api.web3forms.com/submit" class="form" data-wf-page-id="69a5ea5b87dc085b3587a78c" data-wf-element-id="c986a0bd-2f5f-7f99-ab3d-580a317bd3ed">
+              <input type="hidden" name="access_key" value="138c85ba-d60d-4685-9e9e-c93bd637f8f7">
+              <input type="hidden" name="subject" value="New Investor Inquiry — BlackOrigin">
+              <input type="hidden" name="from_name" value="BlackOrigin Website">
+              <input type="hidden" name="redirect" value="https://blackorigin.org/contact.html?submitted=true">
+              <input type="checkbox" name="botcheck" style="display:none;">
               <div id="w-node-c986a0bd-2f5f-7f99-ab3d-580a317bd3ee-3587a78c"><label for="First-name">First name:*</label><input class="text-field w-input" maxlength="256" name="First-name" data-name="First name" placeholder="First name" type="text" id="First-name" required=""></div>
               <div id="w-node-c986a0bd-2f5f-7f99-ab3d-580a317bd3f2-3587a78c"><label for="Last-name">Last name:*</label><input class="text-field w-input" maxlength="256" name="Last-name" data-name="Last name" placeholder="Last name" type="text" id="Last-name" required=""></div>
               <div id="w-node-c986a0bd-2f5f-7f99-ab3d-580a317bd3f6-3587a78c"><label for="Email-address">Email:*</label><input class="text-field w-input" maxlength="256" name="Email-address" data-name="Email address" placeholder="Email address" type="email" id="Email-address" required=""></div>
@@ -199,7 +204,7 @@
               </label><input type="submit" data-wait="Please wait..." id="w-node-c986a0bd-2f5f-7f99-ab3d-580a317bd402-3587a78c" class="button w-button" value="Submit">
             </form>
             <div class="w-form-done">
-              <div class="text-style-body">Thank you! Your submission has been received!</div>
+              <div class="text-style-body">Your inquiry has been received. We review submissions carefully and will follow up if there is a fit.</div>
             </div>
             <div class="w-form-fail">
               <div class="text-style-body">Oops! Something went wrong while submitting the form.</div>
@@ -429,6 +434,17 @@
     }
     applyActive();
     setTimeout(applyActive, 600);
+  })();
+  </script>
+  <script>
+  (function(){
+    if(window.location.search.indexOf('submitted=true') !== -1) {
+      var form = document.getElementById('email-form');
+      var done = document.querySelector('.w-form-done');
+      if(form) form.style.display = 'none';
+      if(done) done.style.display = 'block';
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   })();
   </script>
 </body>
