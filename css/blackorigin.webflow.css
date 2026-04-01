@@ -3286,3 +3286,17 @@ blockquote {
   font-style: normal;
   font-display: swap;
 }
+
+.link-block.bo-current .line-current-underline {
+  display: block !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+.link-block:not(.bo-current) .line-current-underline {
+  display: none !important;
+}
+.link-block:not(.bo-current):hover .line-current-underline {
+  display: block !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
