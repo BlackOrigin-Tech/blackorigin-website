@@ -16,6 +16,13 @@
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/blackorigin.webflow.css" rel="stylesheet" type="text/css">
   <style>
+.team-member img.media-block {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+.team-member:hover img.media-block {
+  filter: grayscale(0%);
+}
 /* Webflow IX3 preloader override, static export fix */
 [homepage-load], [innerpage-load],
 .navbar, .footer, .mobile-menu, .primary-navbar-fixed-wrap,
