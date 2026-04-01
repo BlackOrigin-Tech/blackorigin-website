@@ -24,18 +24,21 @@
   filter: grayscale(0%);
 }
 .team-slider.w-slider {
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 .team-slider .w-slider-mask {
   display: flex !important;
-  overflow: visible !important;
+  overflow: hidden !important;
   height: auto !important;
   gap: 1.5rem;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 .team-slider .w-slide {
   position: relative !important;
-  width: 25% !important;
-  flex: 0 0 calc(25% - 1.125rem) !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
   left: auto !important;
 }
 .team-slider .w-slider-arrow-left,
